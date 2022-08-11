@@ -1,27 +1,13 @@
 --[[
 	Name: packer.lua
 	Description: Configuration file for Packer, used for plugin management
-	Link: https://github.com/wbthomason/packer.nvim
+	Contains: wbthomason/packer.nvim
 
-	Important commands:
-	-- Run this after making changes to your plugin configuration
-	:PackerSync
+--]]
 
-	-- Regenerate compiled loader file
-	:PackerCompile
-
-	- Remove any disabled or unused plugins
-	:PackerClean
-
-	- Clean, then install missing plugins
-	:PackerInstall
-
-	- Clean, then update and install plugins
-	:PackerUpdate
-
-	- Perform `PackerUpdate` and then `PackerCompile`
-	:PackerSync
-
+--[[
+	Don't touch these configuration options
+	They are for bootstrapping purposes
 --]]
 
 -- Automatically install packer if it doesn't exist
@@ -40,6 +26,9 @@ vim.cmd([[
 	augroup end
 ]])
 
+--[[
+	Configuration options
+--]]
 
 -- Define a protected call to packer viz. don't run anything related to packer if there's some error with packer
 local status_ok, packer = pcall(require, "packer")
@@ -58,29 +47,42 @@ packer.init {
 }
 
 -- Packer Management
---return require('packer').startup(function(use)
 return packer.startup(function(use)
 	-- Letting packer manage itself
 	use 'wbthomason/packer.nvim'
 
 	-- File explorer
 	use {
-	  'kyazdani42/nvim-tree.lua',
-	  requires = {
-	    'kyazdani42/nvim-web-devicons', -- File icons
-	    opt = true
-	  },
-	  tag = 'nightly'
+		'kyazdani42/nvim-tree.lua',
+		requires = {
+			'kyazdani42/nvim-web-devicons', -- File icons
+			opt = true
+		},
+		tag = 'nightly'
 	}
 
 	-- nvim.surround, similar to vim surround
 	use 'kylechui/nvim-surround'
 
 	-- Automatic pairs
-	use 'windwp/nvim-autopairs'
+	use {
+		'windwp/nvim-autopairs',
+		requires = {
+			'nvim-treesitter/nvim-treesitter',
+			opt = true
+		}
+
+	}
 
 	-- Show indentation lines
-	use 'lukas-reineke/indent-blankline.nvim'
+	use 
+	{
+		'lukas-reineke/indent-blankline.nvim',
+		requires = {
+			'nvim-treesitter/nvim-treesitter',
+			opt = true
+		}
+	}
 
 	-- Statusline
 	use {
@@ -89,7 +91,13 @@ return packer.startup(function(use)
 	}
 
 	-- The colorscheme
-	use 'EdenEast/nightfox.nvim'
+	use {
+		'EdenEast/nightfox.nvim',
+		requires = {
+			'nvim-treesitter/nvim-treesitter',
+			opt = true
+		}
+	}
 
 	-- Git integration
 	use 'lewis6991/gitsigns.nvim'
@@ -99,18 +107,27 @@ return packer.startup(function(use)
 		'akinsho/bufferline.nvim',
 		tag = "v2.*",
 		requires = {
+			'neovim/nvim-lspconfig',
 			'kyazdani42/nvim-web-devicons',
 			opt = true
 		},
 	}
-
-
-	-- Similar to ctags
+	
+	-- Treesitter
 	use {
+		'nvim-treesitter/nvim-treesitter',
+		run = function() require('nvim-treesitter.install').update({ with_sync = true }) end
+	}
+
+	-- Having treesitter as a dependency
+	use {
+		-- Different color groups for consecutive () and shit
+		'p00f/nvim-ts-rainbow',
+
+		-- Similar to ctags
 		'simrat39/symbols-outline.nvim',
 		requires = {
 			'nvim-treesitter/nvim-treesitter',
-			run = function() require('nvim-treesitter.install').update({ with_sync = true }) end
 		}
 	}
 
@@ -119,20 +136,21 @@ return packer.startup(function(use)
 
 	-- Language server management
 	use {
-		'williamboman/mason.nvim',
-		'williamboman/mason-lspconfig.nvim',
-		requires = {
-			'neovim/nvim-lspconfig'
-		}
-	}
-
-	-- Automatically install all the language servers using Mason if they don't exist
-	use {
-		'WhoIsSethDaniel/mason-tool-installer.nvim',
-		requires = {
-			'neovim/nvim-lspconfig',
+		{
 			'williamboman/mason.nvim',
-			'williamboman/mason-lspconfig.nvim'
+			'williamboman/mason-lspconfig.nvim',
+			requires = {
+				'neovim/nvim-lspconfig'
+			}
+		},
+		{
+			-- Automatically install all the language servers using Mason if they don't exist
+			'WhoIsSethDaniel/mason-tool-installer.nvim',
+			requires = {
+				'neovim/nvim-lspconfig',
+				'williamboman/mason.nvim',
+				'williamboman/mason-lspconfig.nvim'
+			}
 		}
 	}
 
@@ -172,9 +190,6 @@ return packer.startup(function(use)
 		}
 	}
 
-	-- Dim inactive windows
-	-- use 'sunjon/shade.nvim'
-
 	-- Fuzzy finder: Telescope
 	use {
 		'nvim-telescope/telescope.nvim',
@@ -204,7 +219,12 @@ return packer.startup(function(use)
 	}
 
 	-- Markdown live preview
-	use 'davidgranstrom/nvim-markdown-preview'
+	use {
+		"iamcco/markdown-preview.nvim",
+		run = "cd app && npm install",
+		setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" },
+	}
+	--use 'davidgranstrom/nvim-markdown-preview'
 
 	-- Extract the statusline colours for your tmux
 	-- use 'edkolev/tmuxline.vim'
