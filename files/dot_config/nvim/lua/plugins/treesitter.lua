@@ -1,10 +1,20 @@
 --[[
 	Name: treesitter.lua
 	Description: Configuration file for the nvim-treesitter plugin
-	Link: https://github.com/nvim-treesitter/nvim-treesitter
+	Link: 
+		- nvim-treesitter/nvim-treesitter
+		- p00f/nvim-ts-rainbow
+		- windwp/nvim-autopairs
 --]]
 
-require'nvim-treesitter.configs'.setup {
+-- Making a protective call
+local status_ok, treesitter = pcall(require, "nvim-treesitter.configs")
+if not status_ok then
+	print('There is something wrong with nvim-treesitter')
+	return
+end
+
+treesitter.setup {
 	-- A list of parser names, or "all"
 	ensure_installed = {
 		"c",
@@ -14,7 +24,7 @@ require'nvim-treesitter.configs'.setup {
 	},
 
 	-- Install parsers synchronously (only applied to `ensure_installed`)
-	sync_install = true,
+	sync_install = false,
 
 	-- Automatically install missing parsers when entering buffer
 	auto_install = true,
@@ -25,6 +35,20 @@ require'nvim-treesitter.configs'.setup {
 	-- Let treesitter augment syntax highlighting
 	highlight = {
 		enable = true,
-		disable = {}
+		disable = {},
+		additional_vim_regex_highlighting = true,
+	},
+
+
+	-- p00f/nvim-ts-rainbow Configuration
+	rainbow = {
+		enable = true,
+		extended_mode = true,
+		disable = {},
+	},
+
+	-- Make the nvim-autopair plugin Treesitter aware
+	autopairs = {
+		enable = true
 	}
 }
