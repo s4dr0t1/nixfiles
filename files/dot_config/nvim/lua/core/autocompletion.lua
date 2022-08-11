@@ -6,14 +6,18 @@
 		- luasnip
 --]]
 
--- Safe call nvim-cmp and print an error message if there's some error
+--[[
+	Protected calls
+--]]
+
+-- nvim-cmp
 local cmp_status_ok, cmp = pcall(require, "cmp")
 if not cmp_status_ok then
 	print('nvim-cmp is not properly installed')
 	return
 end
 
--- Safe call luasnip and print an error message if there's some error
+-- luasnip
 local snip_status_ok, luasnip = pcall(require, "luasnip")
 if not snip_status_ok then
 	print('luansnip is not properly installed')
@@ -21,6 +25,10 @@ if not snip_status_ok then
 end
 
 require("luasnip/loaders/from_vscode").lazy_load()
+
+--[[
+	Configuration
+--]]
 
 -- Used to fix the error related to backspace, you don't need to know anything more about it
 local check_backspace = function()
@@ -63,6 +71,7 @@ cmp.setup {
 		luasnip.lsp_expand(args.body)
 	    end,
 	},
+
 	-- Keymaps related to autocompletion
 	mapping = {
 		["<C-k>"] = cmp.mapping.select_prev_item(),
@@ -117,6 +126,7 @@ cmp.setup {
 		vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
 		-- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
 		vim_item.menu = ({
+			nvim_lsp = "[LSP]",
 			luasnip = "[Snippet]",
 			buffer = "[Buffer]",
 			path = "[Path]",

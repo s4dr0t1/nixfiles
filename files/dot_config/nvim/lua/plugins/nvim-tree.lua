@@ -1,22 +1,24 @@
 --[[
 	Name: nvim-tree.lua
 	Description: Configuration files for the nvim-tree plugin, a file explorer tree for neovim
-	Link: https://github.com/kyazdani42/nvim-tree.lua
-
-	Important shortcuts:
-	- Delete:  <leader>d
-	- Copy:    <leader>c
-	- Cut:     <leader>x
-	- Paste:   <leader>p
-	- New:     <leader>a
+	Contains: kyazdani42/nvim-tree.lua
 --]]
+
+
+--[[
+	Making a protected call
+--]]
+local status_ok, tree = pcall(require, "nvim-tree")
+if not status_ok then
+	print('There is something wrong with nvim-tree')
+	return
+end
 
 
 --[[
 	Configuration settings for the plugin
 --]]
-require("nvim-tree").setup({
-
+tree.setup({
 	-- Open the tree when if startup buffer is a directory, empty or unnamed. nvim-tree window will be focused.
 	open_on_setup = false,
 
@@ -32,6 +34,12 @@ require("nvim-tree").setup({
 			error = "",
 		},
 	},
+	filters = {
+		custom = {
+			-- Hide the .git folder
+			"^.git$"
+		}
+	}
 })
 
 --[[
@@ -41,8 +49,6 @@ require("nvim-tree").setup({
 -- Toggle nvim-tree
 map('n', '<C-b>', ':NvimTreeToggle<CR>')
 
--- Refresh
-map('n', '<leader>n', ':NvimTreeRefresh<CR>')
 
 --[[
 	Disable netwr, the default file manager for neovim

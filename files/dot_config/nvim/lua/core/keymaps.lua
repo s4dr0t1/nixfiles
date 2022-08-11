@@ -59,9 +59,13 @@ map("n", "<C-Right>", ":vertical resize +2<CR>", {silent = true})
 	Buffer Navigation
 	<Shift> + h Move one buffer left
 	<Shift> + l Move one buffer right
+
+	-- Make this one work
+	<Shift> + w Close the current buffer 
 --]]
 map("n", "<S-l>", ":bnext<CR>", {silent = true})
 map("n", "<S-h>", ":bprevious<CR>", {silent = true})
+-- map("n", "<Leader>q", ":Bdelete<CR>")
 
 
 --[[

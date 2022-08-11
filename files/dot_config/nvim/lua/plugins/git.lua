@@ -4,4 +4,16 @@
 	Link: https://github.com/lewis6991/gitsigns.nvim
 --]]
 
-require('gitsigns').setup()
+--[[
+	Configuration
+--]]
+
+-- Making a protected call
+local status_ok, gitsigns = pcall(require, "gitsigns")
+if not status_ok then
+	print('There is something wrong with gitsigns')
+	return
+end
+
+-- Configuration
+gitsigns.setup()

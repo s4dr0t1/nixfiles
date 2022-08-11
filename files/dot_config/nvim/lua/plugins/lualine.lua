@@ -1,50 +1,33 @@
 --[[
 	Name: lualine.lua
 	Description: Configuration files for the neovim statusline
-	Link: https://github.com/nvim-lualine/lualine.nvim
+	Contains: nvim-lualine/lualine.nvim
 --]]
 
-require('lualine').setup {
+--[[
+	Configuration
+--]]
+
+-- Making a protected call
+local status_ok, lualine = pcall(require, "lualine")
+if not status_ok then
+	print('There is something wrong with lualine')
+	return
+end
+
+lualine.setup {
+	theme = 'auto',
+
+	-- Make sure there is a single lualine at the bottom of neovim instead of having each for every single window
+	globalstatus = false,
+
 	options = {
-		icons_enabled = true,
-		theme = 'auto',
-		component_separators = { left = '', right = ''},
-		section_separators = { left = '', right = ''},
-		disabled_filetypes = {
-			statusline = {},
-			winbar = {},
-		},
-		ignore_focus = {},
-		always_divide_middle = true,
-		globalstatus = false,
-		refresh = {
-			statusline = 1000,
-			tabline = 1000,
-			winbar = 1000,
+		-- Load specific extensions
+		extensions = {
+			'nvim-tree',
+			'man',
+			'symbols-outline',
+			'toggleterm'
 		}
 	},
-	sections = {
-		lualine_a = {'mode'},
-		lualine_b = {'branch', 'diff', 'diagnostics'},
-		lualine_c = {'filename'},
-		lualine_x = {'encoding', 'fileformat', 'filetype'},
-		lualine_y = {'progress'},
-		lualine_z = {'location'}
-	},
-	inactive_sections = {
-		lualine_a = {},
-		lualine_b = {},
-		lualine_c = {'filename'},
-		lualine_x = {'location'},
-		lualine_y = {},
-		lualine_z = {}
-	},
-	tabline = {},
-	winbar = {},
-	inactive_winbar = {},
-	extensions = {
-		'nvim-tree',
-		'man',
-		'symbols-outline'
-	}
 }

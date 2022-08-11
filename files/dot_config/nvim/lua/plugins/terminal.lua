@@ -4,7 +4,14 @@
 	Link: https://github.com/akinsho/toggleterm.nvim
 --]]
 
-require("toggleterm").setup {}
+-- Making a protected call
+local status_ok, toggleterm = pcall(require, "toggleterm")
+if not status_ok then
+	print('There is something wrong with toggleterm')
+	return
+end
+
+toggleterm.setup {}
 
 function _G.set_terminal_keymaps()
 	local opts = {buffer = 0}
