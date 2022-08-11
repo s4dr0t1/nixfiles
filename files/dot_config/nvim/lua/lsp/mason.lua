@@ -1,8 +1,11 @@
 --[[
 	Name: mason.lua
 	Description: Configuration files for the mason toolkit
-	Link: https://github.com/williamboman/mason.nvim#requirements
-	Link: https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim
+	Contains:
+	- williamboman/mason.nvim
+	- WhoIsSethDaniel/mason-tool-installer.nvim
+	- neovim/nvim-lspconfig/
+	- williamboman/mason-lspconfig.nvim
 --]]
 
 
@@ -71,17 +74,31 @@ mason_tool_installer.setup {
 
 
 --[[
-	Register a handler that will be called for all the servers
+	Register a handler that will be called for all the servers, also make sure nvim-cmp adtertises to the that additional capabilities are supported
 	nvim-lsp-installer used the on_server_ready API which was deprecated a while back
 	What we need to try: https://github.com/LunarVim/Neovim-from-scratch/blob/0981b2838275468ad1863aba908379af63209e7a/lua/user/lsp/lsp-installer.lua#L6
 	Discussion link: https://github.com/williamboman/mason.nvim/discussions/40
 --]]
 
 -- the above is enough, but if you want to replicate the "on_server_ready" behaviour where your installed servers are setup "automatically" you can do the following
+
+-- Protected call for cmp_nvim_lsp
+local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if not status_ok then
+	print('There is something wrong with cmp_nvim_lsp')
+	return
+end
+
+-- Add additional capabilities supported by nvim-cmp
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+
 mason_lspconfig.setup_handlers {
 	function (server_name)
 		-- default handler - setup with default settings
-		lspconfig[server_name].setup {}
+		lspconfig[server_name].setup {
+			capabilities = capabilities,
+		}
 	end,
 
 	-- You can override the default handler by providing custom handlers per server
