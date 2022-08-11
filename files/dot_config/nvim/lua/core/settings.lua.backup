@@ -1,0 +1,52 @@
+--[[
+	Name: settings.lua
+	Description: Core settings for neovim
+--]]
+
+-- vim.opt acts like :set in Lua
+local set = vim.opt
+
+
+--[[
+	Neovim UI
+--]]
+
+-- Leader key
+vim.g.mapleader = ','
+
+-- Relative Line numbering
+set.number = true
+set.relativenumber = true
+
+-- Searching
+set.ignorecase = true -- Ignore case when searching
+set.incsearch = true  -- Show search results as you type
+set.hlsearch = true   -- Highlight all matches on previous search pattern
+
+-- Background buffers
+set.hidden = true
+
+-- Encoding
+set.encoding = 'utf-8'
+
+-- Spellchecking
+set.spell = true
+
+-- Disable swap file
+set.swapfile = true
+
+-- Lazy Redraw
+set.lazyredraw = true
+
+-- Use bash to execute commands, instead of the default shell
+set.shell = "/usr/bin/bash"
+
+-- In which direction should the tmux split
+set.splitbelow = true
+set.splitright = false
+
+-- Miscellaneous
+set.termguicolors = true
+
+-- Indentation
+set.smartindent = true
