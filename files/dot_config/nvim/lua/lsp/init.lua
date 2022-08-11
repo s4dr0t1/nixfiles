@@ -12,7 +12,3 @@ end
 
 require('lsp.mason')
 require('lsp.handlers').setup()
---require('lsp.handlers')
-
--- Depends on nvim_cmp_lsp and lspconfig
-require('lsp.capabilities')
