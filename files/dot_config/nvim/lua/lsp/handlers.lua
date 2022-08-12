@@ -1,13 +1,17 @@
 --[[
 	Name: handlers.lua
 	Previously: lsp.lua
-	Description: Configuration files for the nvim LSP
-	Link: https://github.com/neovim/nvim-lspconfig/
+	Description: Responsible for
+		- LSP keymaps
+		- showing diagnostic messages related to the lsp
+		- disabling formatting based on some LSP
+	Contains: nvim-lspconfig/
 --]]
 
 -- Added from following the YT tutorial
 local M = {}
 
+-- Responsible for showing diagnostic icons and stuff
 M.setup = function()
 	local signs = {
 		{ name = "DiagnosticSignError", text = "" },
@@ -51,23 +55,25 @@ M.setup = function()
 	})
 	end
 
+-- I have no idea what this does
 local function lsp_highlight_document(client)
-  -- Set autocommands conditional on server_capabilities
+	-- Set autocommands conditional on server_capabilities
 	if client.resolved_capabilities.document_highlight then
 		vim.api.nvim_exec(
 		[[
-		augroup lsp_document_highlight
-			autocmd! * <buffer>
-			autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-			autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-		augroup END
+			augroup lsp_document_highlight
+				autocmd! * <buffer>
+				autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+				autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+			augroup END
 		]],
 		false
 		)
-		end
 	end
+end
 
 
+-- Keys to interact with the diagnostic messages and other LSP traits
 local function lsp_keymaps(bufnr)
 local opts = { noremap = true, silent = true }
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
@@ -92,22 +98,17 @@ local opts = { noremap = true, silent = true }
 	vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 end
 
+
+-- Making sure the LSP knows about the highlighting and other such things, also we can deal with formatting here
 M.on_attach = function(client, bufnr)
-	if client.name == "tsserver" then
-		client.resolved_capabilities.document_formatting = false
-	end
+	-- We can edit stuff here to disable formatting
+--	if client.name == "tsserver" then
+--		client.resolved_capabilities.document_formatting = false
+--	end
 	lsp_keymaps(bufnr)
 	lsp_highlight_document(client)
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-
-local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not status_ok then
-	return
-end
-
-M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
 return M
 
