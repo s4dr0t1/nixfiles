@@ -52,13 +52,18 @@ if not status_ok then
 end
 
 -- Add additional capabilities supported by nvim-cmp
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+CMP_CAPABILITIES = vim.lsp.protocol.make_client_capabilities()
+CMP_CAPABILITIES = cmp_nvim_lsp.update_capabilities(CMP_CAPABILITIES)
 
-local custom_attach = function(client, bufnr)
+--[[
+	Things to do when a server is attached to a buffer
+	This one here is pretty important, apart from being used in mason_lspconfig just few lines below, it's also used in the server configurations
+	Because in those cases, the default handler will not run, and thus on_attach will not be passed so we need to pass it
+	That is why I've made the variable global so that they can be accessed through server configurations settings
+--]]
+CUSTOM_ATTACH = function(client, bufnr)
 	-- Passing the keymaps so that they can be used
 	lsp_keymaps(bufnr)
-
 	-- Disable formatting (for future reference)
 --	if client.name == "tsserver" then
 --		client.resolved_capabilities.document_formatting = false
@@ -69,13 +74,14 @@ mason_lspconfig.setup_handlers {
 	function (server_name)
 		-- default handler - setup with default settings
 		lspconfig[server_name].setup {
-			capabilities = capabilities,
-			on_attach = custom_attach
+			capabilities = CMP_CAPABILITIES,
+			on_attach = CUSTOM_ATTACH
 		}
 	end,
 
-	-- You can override the default handler by providing custom handlers per server
---	["jdtls"] = function ()
---		-- do something with the nvim-jdtls plugin instead
---	end
+	-- For those servers with custom settings, define them here, all servers which you want to start up with default settings will be dealt by the upper code snippet. The server name convention followed here will be that of lspconfig, and not mason's package names. Check this link for more information: https://github.com/williamboman/mason-lspconfig.nvim/blob/main/doc/server-mapping.md
+	
+	["sumneko_lua"] = function ()
+		require('lsp/server_settings/sumneko_lua')
+	end,
 }
