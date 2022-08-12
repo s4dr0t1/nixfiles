@@ -1,11 +1,9 @@
 --[[
 	Name: mason.lua
-	Description: Configuration files for the mason toolkit
+	Description: Configuration files for the mason toolkit viz. installation of LSP servers
 	Contains:
-	- williamboman/mason.nvim
-	- WhoIsSethDaniel/mason-tool-installer.nvim
-	- neovim/nvim-lspconfig/
-	- williamboman/mason-lspconfig.nvim
+		- williamboman/mason.nvim
+		- WhoIsSethDaniel/mason-tool-installer.nvim
 --]]
 
 
@@ -16,7 +14,7 @@ if not status_ok then
 	return
 end
 
-local statuslocal status_ok, mason_tool_installer = pcall(require, "mason-tool-installer")
+local statuslocal status_ok, installer = pcall(require, "mason-tool-installer")
 if not status_ok then
 	print('There is something wrong with mason-tool-installer')
 	return
@@ -26,7 +24,7 @@ end
 mason.setup()
 
 -- Automatically install these language servers if they don't exist
-mason_tool_installer.setup {
+installer.setup {
 	ensure_installed = {
 		'clangd',
 		'bash-language-server',

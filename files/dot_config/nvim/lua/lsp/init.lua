@@ -18,17 +18,17 @@ end
 require('lsp.mason')
 
 --[[
-	Responsible for:
-		- keymaps
-		- showing diagnostic messages related to the lsp
-		- disabling formatting based on some LSP
+	Responsible for everything when a LSP server is attached to a buffer, such as
+		- Advertising to LSP servers about additional capabilities supported by nvim-cmp
+		- Starting the LSP server
+		- Passing configuration settings to LSP servers
 --]]
-require('lsp.handlers').setup()
-
+require('lsp.server_attachment')
 
 --[[
 	Responsible for:
-		- Making sure LSP servers get attached to the buffers
-		- Advertising to LSP servers about additional capabilities supported by nvim-cmp
+		- keymaps (but they're actually used by the server_attachment file)
+		- showing diagnostic messages related to the lsp
 --]]
-require('lsp.server_attachment')
+require('lsp.config')
+
