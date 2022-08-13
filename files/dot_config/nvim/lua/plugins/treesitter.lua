@@ -39,7 +39,6 @@ treesitter.setup {
 		additional_vim_regex_highlighting = true,
 	},
 
-
 	-- p00f/nvim-ts-rainbow Configuration
 	rainbow = {
 		enable = true,

@@ -12,7 +12,7 @@
 local global = vim.g
 
 -- Automatically start the server after opening a markdown file
-global.mkdp_auto_start = 1
+global.mkdp_auto_start = 0
 
 -- Shut down the server when we change the buffer
 global.mkdp_auto_close = 0

@@ -68,10 +68,8 @@ CMP_CAPABILITIES = cmp_nvim_lsp.update_capabilities(CMP_CAPABILITIES)
 -- Used for enabling formatting on save option
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 CUSTOM_ATTACH = function(client, bufnr)
-	print('Hello from CUSTOM_ATTACH')
 	-- Passing the keymaps so that they can be used
 	lsp_keymaps(bufnr)
-
 
 	if client.supports_method("textDocument/formatting") then
 		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })

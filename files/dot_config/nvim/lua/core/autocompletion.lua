@@ -72,6 +72,11 @@ cmp.setup {
 	    end,
 	},
 
+	-- Must show documentation
+	window  = {
+		documentation = true
+	},
+
 	-- Keymaps related to autocompletion
 	mapping = {
 		["<C-k>"] = cmp.mapping.select_prev_item(),

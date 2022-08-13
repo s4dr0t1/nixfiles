@@ -12,9 +12,9 @@
 
 -- Automatically install packer if it doesn't exist
 local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-	packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+	packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
 	vim.cmd [[packadd packer.nvim]]
 end
 
@@ -75,7 +75,7 @@ return packer.startup(function(use)
 	}
 
 	-- Show indentation lines
-	use 
+	use
 	{
 		'lukas-reineke/indent-blankline.nvim',
 		requires = {
@@ -112,7 +112,6 @@ return packer.startup(function(use)
 			opt = true
 		},
 	}
-	
 	-- Treesitter
 	use {
 		'nvim-treesitter/nvim-treesitter',
@@ -151,6 +150,15 @@ return packer.startup(function(use)
 				'williamboman/mason.nvim',
 				'williamboman/mason-lspconfig.nvim'
 			}
+		}
+	}
+
+	-- Augmenting the LSP by hooking into it, using null-ls
+	use {
+		'jose-elias-alvarez/null-ls.nvim',
+		requires = {
+			'neovim/nvim-lspconfig',
+			'nvim-lua/plenary.nvim'
 		}
 	}
 
@@ -197,6 +205,8 @@ return packer.startup(function(use)
 			-- Make nvim act as the LSP itself to inject stuff
 			'nvim-lua/plenary.nvim',
 			{ 'kyazdani42/nvim-web-devicons', opt = true },
+			{ 'neovim/nvim-lspconfig/', opt = true },
+			{ 'nvim-treesitter/nvim-treesitter', opt = true },
 		},
 		run = {
 			'sudo apt-get install fd-find',
@@ -224,21 +234,6 @@ return packer.startup(function(use)
 		run = "cd app && npm install",
 		setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" },
 	}
-	--use 'davidgranstrom/nvim-markdown-preview'
-
-	-- Extract the statusline colours for your tmux
-	-- use 'edkolev/tmuxline.vim'
-
-	-- Check for grammatical mistakes, must have the ltex LSP installed
-	-- Using proselint via null-ls instead of this
---	use {
---	    'brymer-meneses/grammar-guard.nvim',
---	    requires = {
---		'neovim/nvim-lspconfig',
---		'williamboman/mason.nvim',
---		'williamboman/mason-lspconfig.nvim',
---	    }
---	}
 
 	-- This must always be placed at the end.
 	-- Automatically setup your configuration after cloning packer.nvim if it doesn't exist already

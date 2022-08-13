@@ -24,11 +24,11 @@
 	optionalData = additional options
 --]]
 function map(mode, lhs, rhs, optionalData)
-    local options = { noremap = true }
-    if optionalData then
-        options = vim.tbl_extend("force", options, optionalData)
-    end
-    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+	local options = { noremap = true }
+	if optionalData then
+		options = vim.tbl_extend("force", options, optionalData)
+	end
+	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
 -- Remap <ESC> to jk
@@ -50,10 +50,10 @@ map('n', '<C-L>', '<C-W>l')
 	Enable buffer resizing
 	<C>arrow_keys
 --]]
-map("n", "<C-Up>", ":resize +2<CR>", {silent = true})
-map("n", "<C-Down>", ":resize -2<CR>", {silent = true})
-map("n", "<C-Left>", ":vertical resize -2<CR>", {silent = true})
-map("n", "<C-Right>", ":vertical resize +2<CR>", {silent = true})
+map("n", "<C-Up>", ":resize +2<CR>", { silent = true })
+map("n", "<C-Down>", ":resize -2<CR>", { silent = true })
+map("n", "<C-Left>", ":vertical resize -2<CR>", { silent = true })
+map("n", "<C-Right>", ":vertical resize +2<CR>", { silent = true })
 
 --[[
 	Buffer Navigation
@@ -63,8 +63,8 @@ map("n", "<C-Right>", ":vertical resize +2<CR>", {silent = true})
 	-- Make this one work
 	<Shift> + w Close the current buffer 
 --]]
-map("n", "<S-l>", ":bnext<CR>", {silent = true})
-map("n", "<S-h>", ":bprevious<CR>", {silent = true})
+map("n", "<S-l>", ":bnext<CR>", { silent = true })
+map("n", "<S-h>", ":bprevious<CR>", { silent = true })
 -- map("n", "<Leader>q", ":Bdelete<CR>")
 
 
@@ -73,7 +73,7 @@ map("n", "<S-h>", ":bprevious<CR>", {silent = true})
 	Use <ESC> or <C-c> to get out of it
 --]]
 map("v", "<", "<gv", { silent = true })
-map("v", ">", ">gv", { silent = true})
+map("v", ">", ">gv", { silent = true })
 
 
 --[[
@@ -83,7 +83,6 @@ map("v", ">", ">gv", { silent = true})
 	-- map('n', 'n', ':m +1<CR>', {noremap = false, silent = true})
 	-- map('n', 'm', ':m -2<CR>', {noremap = false, silent = true})
 --]]
-
 map("v", "<A-j>", ":m .+1<CR>==", { silent = true })
 map("v", "<A-k>", ":m .-2<CR>==", { silent = true })
 map("x", "J", ":move '>+1<CR>gv-gv", { silent = true })

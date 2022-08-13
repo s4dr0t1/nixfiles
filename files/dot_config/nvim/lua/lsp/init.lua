@@ -23,6 +23,7 @@ require('lsp.mason')
 		- Starting the LSP server
 		- Passing configuration settings to LSP servers
 --]]
+
 require('lsp.server_attachment')
 
 --[[
@@ -32,3 +33,6 @@ require('lsp.server_attachment')
 --]]
 require('lsp.config')
 
+
+-- Configuration files for null-ls
+require('lsp.null_ls')
