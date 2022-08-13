@@ -222,6 +222,12 @@ return packer.startup(function(use)
 
 	}
 
+	-- Improve the startup time
+	use {
+		'lewis6991/impatient.nvim',
+		config = function() require 'impatient' end
+	}
+
 	-- Terminal integration
 	use {
 		'akinsho/toggleterm.nvim',
@@ -233,6 +239,9 @@ return packer.startup(function(use)
 		"iamcco/markdown-preview.nvim",
 		run = "cd app && npm install",
 		setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" },
+		cmd = {
+			'MarkdownPreview'
+		}
 	}
 
 	-- This must always be placed at the end.

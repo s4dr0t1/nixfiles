@@ -9,9 +9,12 @@
 	Neovim UI
 --]]
 
+-- Used later
+local g = vim.g
 -- Leader key
-vim.g.mapleader = ','
+g.mapleader = ','
 
+-- Contains settings
 local options = {
 	-- Numbering
 	number = true,
@@ -44,7 +47,7 @@ local options = {
 
 	-- In which direction should the tmux split
 	splitbelow = true,
-	splitright = false,
+	splitright = true,
 
 	-- Miscellaneous
 	termguicolors = true,
@@ -53,7 +56,10 @@ local options = {
 	smartindent = true,
 
 	-- Don't show the current Vim node because it's shown by the lualine already
-	showmode = false
+	showmode = false,
+
+	-- Have a global statusline
+	laststatus = 3,
 }
 
 -- Set those options
@@ -61,4 +67,51 @@ local options = {
 local set = vim.opt
 for k, v in pairs(options) do
 	set[k] = v
+end
+
+-- Disable these built-in plugins
+local default_plugins = {
+	"2html_plugin",
+	"getscript",
+	"getscriptPlugin",
+	"gzip",
+	"logipat",
+	"netrw",
+	"netrwPlugin",
+	"netrwSettings",
+	"netrwFileHandlers",
+	"matchit",
+	"tar",
+	"tarPlugin",
+	"rrhelper",
+	"spellfile_plugin",
+	"vimball",
+	"vimballPlugin",
+	"zip",
+	"zipPlugin",
+	"tutor",
+	"rplugin",
+	"syntax",
+	"synmenu",
+	"optwin",
+	"compiler",
+	"bugreport",
+	"ftplugin",
+}
+
+for _, plugin in pairs(default_plugins) do
+	g["loaded_" .. plugin] = 1
+end
+
+
+-- Disabling support for pynvim, and the likes: Default providers
+local default_providers = {
+	"node",
+	"perl",
+	"python3",
+	"ruby",
+}
+
+for _, provider in ipairs(default_providers) do
+	g["loaded_" .. provider .. "_provider"] = 0
 end

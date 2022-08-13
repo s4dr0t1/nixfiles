@@ -48,12 +48,3 @@ tree.setup({
 
 -- Toggle nvim-tree
 map('n', '<C-b>', ':NvimTreeToggle<CR>')
-
-
---[[
-	Disable netwr, the default file manager for neovim
-	Since we're using nvim-tree now, there's no need to load extraneous plugins
---]]
-local global = vim.g
-global.loaded_netrw = 1
-global.loaded_netrwPlugin = 0
