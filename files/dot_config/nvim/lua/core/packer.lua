@@ -225,7 +225,6 @@ return packer.startup(function(use)
 	-- Improve the startup time
 	use {
 		'lewis6991/impatient.nvim',
-		config = function() require 'impatient' end
 	}
 
 	-- Terminal integration
