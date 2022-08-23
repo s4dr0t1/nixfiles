@@ -108,7 +108,6 @@ in
 		systemPackages = with pkgs; [
 			wget
 			curl
-			neovim
 			alacritty
 			git
 			file
@@ -137,15 +136,6 @@ in
 	# started in user sessions.
 	# programs.mtr.enable = true;
 	programs = {
-		neovim = {
-			enable = true;
-			viAlias = true;
-			vimAlias = true;
-			defaultEditor = true;
-			withNodeJs = false;
-			withPython3 = false;
-			withRuby = false;
-		};
 		gnupg.agent = {
 			enable = true;
 			enableSSHSupport = true;

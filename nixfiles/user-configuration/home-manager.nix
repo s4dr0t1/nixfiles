@@ -86,6 +86,23 @@
 
 				# Letting home-manager manage itself
 				home-manager.enable = true;
+
+				neovim = {
+					enable = true;
+					extraPackages = with pkgs; [
+						fd
+						ripgrep
+						lua53Packages.luarocks
+
+					];
+					extraConfig = "";
+					viAlias = true;
+					vimAlias = true;
+					vimdiffAlias = true;
+					withNodeJs = true;
+					withPython3 = false;
+					withRuby = false;
+				};
 			};
 			home = {
 				stateVersion = "22.05";
@@ -96,14 +113,9 @@
 					# Command line applications
 					kitty
 					bat
-					tmux
 					starship
 					chezmoi
-					#nodePackages.npm
-					nodejs-16_x
-					ripgrep
 					patchelf
-					fd
 					nerdfonts
 
 					# Appearance
