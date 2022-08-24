@@ -118,7 +118,7 @@ in
 			coreutils-full
 			ltrace
 			unzip
-			firefox
+			librewolf
 			unzip
 			xxd
 
