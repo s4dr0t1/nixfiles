@@ -1,61 +1,46 @@
+/*
+	Name: flake.nix
+	Description: Root project file for my NixOS configuration
+*/
+
 {
 	description = "s4dr0t1's system configuration";
 
 	/*
-		Dependencies, similar to nix-channels
+		Specify dependencies used to build my system, which are similar to nix-channels
 		To update dependencies: nix flake update
 	*/
 	inputs = {
 		# Nixpkgs repository for NixOS 22.05
 		nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.05";
+
 		# Used to maintain userspace configuration
 		home-manager = {
 			url = "github:nix-community/home-manager/release-22.05";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+
 		# Rust toolchain and rust-analyzer nightly for Nix
-#		fenix = {
-#				url = "github:nix-community/fenix";
-#				inputs.nixpkgs.follows = "nixpkgs";
-#			}
+		# fenix = {
+		# 	url = "github:nix-community/fenix";
+		# 	inputs.nixpkgs.follows = "nixpkgs";
+		# };
 
 	};
 
 	# Function which tells my flake with to do with the dependencies
-	outputs = inputs @ { nixpkgs, home-manager, ... }: 
+	outputs = inputs @ { self, nixpkgs, home-manager, ... }: 
 		let
 			username = "s4dr0t1";
-			hostname = "ucciha";
-			system = "x86_64-linux";
+			architecture = "x86_64-linux";
 		in
 		{
-			nixosConfigurations = {
-				${hostname} = nixpkgs.lib.nixosSystem {
-					inherit system;
-					modules = [
-							(import ./nixfiles/system/configuration.nix)
-							(import ./nixfiles/system/hardware-configuration.nix)
-
-							(import ./nixfiles/user-configuration/home-manager.nix)
-							home-manager.nixosModules.home-manager
-							#{
-							#	home-manager.useGlobalPkgs = true;
-							#	home-manager.useUserPackages = true;
-							#}
-
-#						{
-#							nixpkgs.overlays = 
-#							let
-#								discordOverlay = self: super: { discord = super.discord.override { withOpenASAR = true; }; };
-#							in
-#							[ discordOverlay ];
-#
-#						}
-					];
-					specialArgs = { inherit inputs; };
-				};
-			};
-
-			${hostname} = inputs.self.nixosConfigurations.${hostname}.config.system.system.build.toplevel;
+			# NixOS configuration, other supported options are darwinConfigurations (for Darwin)and homeConfigurations (for non-NixOS based systems)
+			nixosConfigurations = (
+				import ./files {
+					inherit (nixpkgs) lib;
+					inherit inputs nixpkgs home-manager username architecture;
+				}
+			);
 		};
 }
