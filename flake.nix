@@ -32,14 +32,13 @@
 	outputs = inputs @ { self, nixpkgs, home-manager, ... }: 
 		let
 			username = "s4dr0t1";
-			architecture = "x86_64-linux";
 		in
 		{
 			# NixOS configuration, other supported options are darwinConfigurations (for Darwin)and homeConfigurations (for non-NixOS based systems)
 			nixosConfigurations = (
 				import ./files {
 					inherit (nixpkgs) lib;
-					inherit inputs nixpkgs home-manager username architecture;
+					inherit inputs nixpkgs home-manager username;
 				}
 			);
 		};
