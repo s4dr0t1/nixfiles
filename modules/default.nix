@@ -2,7 +2,6 @@
 {
 	home-manager.users.${username}.home.packages = with pkgs; [
 		# Command line applications
-		kitty
 		bat
 		starship
 		chezmoi

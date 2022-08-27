@@ -10,6 +10,7 @@
 		../../../modules/development/golang.nix
 		../../../modules/development/neovim.nix
 		../../../modules/development/tmux.nix
+		../../../modules/development/kitty.nix
 
 		# Security
 		../../../modules/security/gpg.nix
