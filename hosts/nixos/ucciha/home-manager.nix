@@ -7,7 +7,6 @@
 
 		# Development
 		../../../modules/development/git.nix
-		../../../modules/development/golang.nix
 		../../../modules/development/neovim.nix
 		../../../modules/development/tmux.nix
 		../../../modules/development/kitty.nix

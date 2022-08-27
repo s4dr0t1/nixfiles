@@ -6,6 +6,7 @@
 			fd
 			ripgrep
 			lua53Packages.luarocks
+			go
 
 		];
 		extraConfig = "";
