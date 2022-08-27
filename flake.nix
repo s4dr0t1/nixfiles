@@ -36,7 +36,7 @@
 		{
 			# NixOS configuration, other supported options are darwinConfigurations (for Darwin)and homeConfigurations (for non-NixOS based systems)
 			nixosConfigurations = (
-				import ./files {
+				import ./hosts/nixos {
 					inherit (nixpkgs) lib;
 					inherit inputs nixpkgs home-manager username;
 				}
