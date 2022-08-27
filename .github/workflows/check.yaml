@@ -1,0 +1,20 @@
+#Shamelessly stolen from here: https://github.com/LEXUGE/nixos/tree/master/.github/workflows with some minor updates
+name: "Nix Flake Check"
+on:
+  pull_request:
+  push:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        # Nix Flakes doesn't work on shallow clones
+        fetch-depth: 0
+    - uses: cachix/install-nix-action@v12
+      with:
+        install_url: https://github.com/numtide/nix-unstable-installer/releases/download/nix-2.10.0pre20220817_7aa36ae/install
+    # Configure Nix to enable flakes
+    - run: echo "experimental-features = nix-command flakes" | sudo tee -a /etc/nix/nix.conf
+    # Run the general flake checks
+    - run: nix flake check
