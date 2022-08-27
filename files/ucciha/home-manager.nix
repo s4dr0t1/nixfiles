@@ -175,6 +175,7 @@
 			home = {
 				sessionVariables = {
 					EDITOR = "nvim";
+					VISUAL = "nvim";
 				};
 				stateVersion = "22.05";
 				username = "s4dr0t1";
