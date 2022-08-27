@@ -3,7 +3,7 @@
 	Description: The starting file of the ./files subdirectory containing pointers to other files
 */
 
-{ lib, inputs, nixpkgs, home-manager, username, ... }:
+{ lib, inputs, nixpkgs, home-manager, username, fullname, useremail, ... }:
 let
 	system = "x86_64-linux";
 	pkgs = import nixpkgs {
@@ -19,7 +19,7 @@ in
 	# My laptop profile
 	ucciha = lib.nixosSystem {
 		inherit system;
-		specialArgs = { inherit inputs username; };
+		specialArgs = { inherit inputs username useremail fullname; };
 
 		modules = [
 			./ucciha

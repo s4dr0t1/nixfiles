@@ -15,7 +15,7 @@
 		- Miscellaneous
 */
 
-{ config, lib, pkgs, inputs, username, ... }:
+{ config, lib, pkgs, inputs, username, useremail, fullname,  ... }:
 {
 	/*
 		Nix settings

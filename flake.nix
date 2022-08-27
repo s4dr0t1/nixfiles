@@ -32,13 +32,15 @@
 	outputs = inputs @ { self, nixpkgs, home-manager, ... }: 
 		let
 			username = "s4dr0t1";
+			fullname = "Rohit Dhill";
+			useremail = "s4dr0t1@protonmail.com";
 		in
 		{
 			# NixOS configuration, other supported options are darwinConfigurations (for Darwin)and homeConfigurations (for non-NixOS based systems)
 			nixosConfigurations = (
 				import ./hosts/nixos {
 					inherit (nixpkgs) lib;
-					inherit inputs nixpkgs home-manager username;
+					inherit inputs nixpkgs home-manager username fullname useremail;
 				}
 			);
 		};
