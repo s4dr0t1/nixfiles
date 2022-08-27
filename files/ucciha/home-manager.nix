@@ -173,6 +173,9 @@
 				};
 			};
 			home = {
+				sessionVariables = {
+					EDITOR = "nvim";
+				};
 				stateVersion = "22.05";
 				username = "s4dr0t1";
 				homeDirectory = "/home/s4dr0t1";
