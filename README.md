@@ -1,4 +1,4 @@
-## [s4dr0t1/nixfiles](github.com/s4dr0t1/nixfiles)
+# [s4dr0t1/nixfiles](github.com/s4dr0t1/nixfiles)
 
 [<img src="https://nixos.org/logo/nixos-logo-only-hires.png" width="200" align="right" alt="NixOS">](https://nixos.org)
 [![NixOS 22.05](https://img.shields.io/badge/NixOS-22.05-blue.svg?style=flat&logo=NixOS&logoColor=white)](https://nixos.org)
@@ -6,14 +6,15 @@
 [![Commit activity](https://img.shields.io/github/last-commit/s4dr0t1/nixfiles/main?style=flat)](https://github.com/s4dr0t1/nixfiles)
 [![Warning](https://img.shields.io/badge/Warning-WIP-red?style=flat&logo=serverfault)](https://en.wikipedia.org/wiki/Work_in_Progress_(https://en.wikipedia.org/wiki/Work_in_process))
 
-> **Warning**
-> This project is a WIP and production usage isn't recommended. For the time being, take inspiration from it to build something of your own.
 
 - [Introduction](#introduction)
 - [What am I looking at?](#what-am-i-looking-at%3F)
 - [Documentation](#documentation)
 - [How to get started?](#how-to-get-started%3F)
 - [License](#license)
+
+> **Warning**
+> This project is a work-in-progress and production usage isn't recommended yet. For the time being, take inspiration from it to build something of your own.
 
 ## Introduction
 
