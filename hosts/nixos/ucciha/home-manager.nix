@@ -11,6 +11,7 @@
 		../../../modules/development/tmux.nix
 		../../../modules/development/kitty.nix
 		../../../modules/development/starship.nix
+		../../../modules/development/fish.nix
 
 		# Security
 		../../../modules/security/gpg.nix
