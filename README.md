@@ -1,16 +1,25 @@
-[![Warning](https://img.shields.io/badge/Warning-WIP-red?style=flat&logo=serverfault)](https://en.wikipedia.org/wiki/Work_in_Progress_(https://en.wikipedia.org/wiki/Work_in_process))
+## [s4dr0t1/nixfiles](github.com/s4dr0t1/nixfiles)
+
+[<img src="https://nixos.org/logo/nixos-logo-only-hires.png" width="200" align="right" alt="NixOS">](https://nixos.org)
 [![NixOS 22.05](https://img.shields.io/badge/NixOS-22.05-blue.svg?style=flat&logo=NixOS&logoColor=white)](https://nixos.org)
-![Nix Flake Check](https://github.com/s4dr0t1/nixfiles/workflows/Nix%20Flake%20Check/badge.svg)
+[![Nix Flake Check](https://github.com/s4dr0t1/nixfiles/workflows/Nix%20Flake%20Check/badge.svg)](https://github.com/s4dr0t1/nixfiles/actions)
+[![Commit activity](https://img.shields.io/github/last-commit/s4dr0t1/nixfiles/main?style=flat)](https://github.com/s4dr0t1/nixfiles)
+[![Warning](https://img.shields.io/badge/Warning-WIP-red?style=flat&logo=serverfault)](https://en.wikipedia.org/wiki/Work_in_Progress_(https://en.wikipedia.org/wiki/Work_in_process))
 
-### Introduction
+> **Warning**
+> This project is a WIP and production usage isn't recommended. For the time being, take inspiration from it to build something of your own.
 
+- [Introduction](#introduction)
+- [What am I looking at?](#what-am-i-looking-at%3F)
+- [Documentation](#documentation)
+- [How to get started?](#how-to-get-started%3F)
+- [License](#license)
+
+## Introduction
 
 This repository contains configuration files for my Nix universe shenanigans.
 
-> **Warning**
-> This work is a heavy work-in-progress. You aren't expected to test this configuration out in production environments.
-
-### What the heck is NixOS?
+## What am I looking at?
 
 If you stumbled upon this repository by chance and are scrambling your head about what the hell this Nix thing is? Let me help. :D
 
@@ -18,15 +27,11 @@ If you stumbled upon this repository by chance and are scrambling your head abou
 - [NixOS](https://nixos.wiki/wiki/Overview_of_the_NixOS_Linux_distribution): A GNU/ Linux distribution based on Nix.
 - [Nix Expression Language](https://nixos.wiki/wiki/Overview_of_the_Nix_Language): A programming language designed per the functional programming paradigm. Used to write instructions for the Nix packaging system and isn't a general-purpose programming language.
 
+## Documentation
 
-### Documentation
+Documentation has been moved to another file, please check this [link](./doc/README.md) for more information.
 
-Name | Description | Link | Documentation
--|-|-|-
-tmux | tmux is a terminal multiplexer: it enables a number of terminals to be created, accessed, and controlled from a single screen. tmux may be detached from a screen and continue running in the background, then later reattached. | WIP | [Documentation](./doc/tmux.md)
-neovim | hyperextensible Vim-based text editor | WIP | [Documentation](./doc/nvim.md)
-
-### How to get started?
+## How to get started?
 
 There are a lot of resources out there to get started with Nix, here are the ones which helped me get past the learning curve.
 
@@ -35,3 +40,9 @@ There are a lot of resources out there to get started with Nix, here are the one
 - [Andrew Tropin](https://github.com/abcdw)'s playlist on NixOS (some NixOS knowledge is required): [YouTube](https://youtube.com/playlist?list=PLZmotIJq3yOKew30oT8aEbPUOEKBmNpY1)
 
 Done with the aforementioned links already and craving for more? Check out [NixOS Wiki](https://nixos.wiki) and [Awesome Nix](https://github.com/nix-community/awesome-nix).
+
+## License
+
+[<img src="https://gist.githubusercontent.com/xero/cbcd5c38b695004c848b73e5c1c0c779/raw/6b32899b0af238b17383d7a878a69a076139e72d/kopimi-sm.png" align="right" alt="komini" width="70">](https://kopimi.com)
+
+All files and scripts in this repository are released [CC0](https://creativecommons.org/publicdomain/zero/1.0/)/ [kopimi](https://kopimi.com)! In the spirit of freedom of information, I encourage you to fork, modify, change, share, or do whatever you like with this project! `^c^v`
