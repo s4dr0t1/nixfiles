@@ -10,6 +10,7 @@
 		../../../modules/development/neovim.nix
 		../../../modules/development/tmux.nix
 		../../../modules/development/kitty.nix
+		../../../modules/development/starship.nix
 
 		# Security
 		../../../modules/security/gpg.nix

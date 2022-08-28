@@ -3,30 +3,27 @@
 	home-manager.users.${username}.home.packages = with pkgs; [
 		# Command line applications
 		bat
-		starship
-		chezmoi
 		patchelf
-		nerdfonts
 
 		# Appearance
 		la-capitaine-icon-theme
 		whitesur-gtk-theme
 
 		# Productivity applications
-		calibre
+		#calibre
 		flameshot
 		notion-app-enhanced
 		obsidian
-		obs-studio
+		#obs-studio
 		vmware-workstation
 		openboard
 		libreoffice
 
 		# Security applications
 		checksec
-		tailscale
+		#tailscale
 		wireshark
-		rappel
+		#rappel
 
 		# Recreation, social media and messaging
 		discord
