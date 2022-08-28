@@ -30,7 +30,21 @@ If you stumbled upon this repository by chance and are scrambling your head abou
 
 ## Documentation
 
-Documentation has been moved to another file, please check this [link](./doc/README.md) for more information.
+
+```
+.
+├── doc/
+├── flake.lock
+├── flake.nix
+├── hosts/
+├── LICENSE.md
+├── modules/
+└── README.md
+```
+
+- `doc/` contains the documentation, cheatsheets and the likes.
+- `hosts/` contains system level configuration for different hosts that I have.
+- `modules/` contains application-level configuration, managed by home-manager and in some cases Nix, documentation can be found [here](./doc/README.md).
 
 ## How to get started?
 
