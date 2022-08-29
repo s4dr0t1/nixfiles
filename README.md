@@ -30,7 +30,6 @@ If you stumbled upon this repository by chance and are scrambling your head abou
 
 ## Documentation
 
-
 ```
 .
 ├── doc/

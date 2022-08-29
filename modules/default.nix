@@ -33,6 +33,6 @@
 
 		# Programming
 		rustup
-		vscodium
+		#vscodium
 	];
 }

@@ -11,6 +11,7 @@
 		To update dependencies: nix flake update
 	*/
 	inputs = {
+		# Core dependencies
 		# Nixpkgs repository for NixOS 22.05
 		nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.05";
 
@@ -19,6 +20,8 @@
 			url = "github:nix-community/home-manager/release-22.05";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+
+		# Miscellaneous stuff
 
 		# Rust toolchain and rust-analyzer nightly for Nix
 		# fenix = {
