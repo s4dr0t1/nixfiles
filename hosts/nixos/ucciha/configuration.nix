@@ -10,7 +10,6 @@
 		- Sound
 		- Fonts
 		- Virtualisation
-		- Display
 		- System-wide packages
 		- Miscellaneous
 */
@@ -96,7 +95,7 @@
 		Time zone and internationalization information
 	*/
 	time.timeZone = "Asia/Kolkata";
-	i18n.defaultLocale = "en_IN.utf8";
+	#i18n.defaultLocale = "utf8";
 
 	/*
 		Sound options
@@ -135,37 +134,6 @@
 			autoPrune.enable = true;
 		};
 
-	};
-
-	/*
-		Display options
-	*/
-	services = {
-		xserver = {
-			enable = true;
-
-			libinput = {
-				enable = true;
-				touchpad = {
-					tapping = true;
-					scrollMethod = "twofinger";
-				};
-			};
-
-			layout = "us";
-
-			displayManager = {
-				sddm = {
-					enable = true;
-				};
-			};
-
-			desktopManager = {
-				plasma5 = {
-					enable = true;
-				};
-			};
-		};
 	};
 
 	/*

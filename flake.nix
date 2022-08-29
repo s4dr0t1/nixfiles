@@ -21,6 +21,11 @@
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 
+		hyprland = {
+			url = "github:hyprwm/Hyprland";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
+
 		# Miscellaneous stuff
 
 		# Rust toolchain and rust-analyzer nightly for Nix
@@ -32,7 +37,7 @@
 	};
 
 	# Function which tells my flake with to do with the dependencies
-	outputs = inputs @ { self, nixpkgs, home-manager, ... }: 
+	outputs = inputs @ { self, nixpkgs, home-manager, hyprland, ... }: 
 		let
 			username = "s4dr0t1";
 			fullname = "Rohit Dhill";
@@ -43,7 +48,7 @@
 			nixosConfigurations = (
 				import ./hosts/nixos {
 					inherit (nixpkgs) lib;
-					inherit inputs nixpkgs home-manager username fullname useremail;
+					inherit inputs nixpkgs home-manager username fullname useremail hyprland;
 				}
 			);
 		};
