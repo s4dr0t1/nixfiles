@@ -1,3 +1,7 @@
+/*
+	Name: /modules/desktop/wayland/hyprland/userspace.nix
+	Description: Configuration file for Hyprland
+*/
 { config, lib, pkgs, username, ... }:
 
 {
@@ -86,26 +90,22 @@
 			disable_while_typing = true
 			natural_scroll = false
 			tap-to-click = true
-
 		};
-
-		# Every window on a workspace is a member of the binary tree (BSPWM like layout)
-		dwindle {
-			pseudotile = 0
-		}
 
 		# Keybindings
 		# Syntax: bind=MOD,key,dispatcher,params
 		# Example: bind=SUPERSHIFT,Q,exec,firefox
 
 		bind = SUPER,Return,exec,${pkgs.kitty}/bin/kitty
-		bind = SUPER,Q,killactive,
-		bind = SUPER,Escape,exit,
 		bind = SUPER,E,exec,${pkgs.pcmanfm}/bin/pcmanfm
-		bind = SUPER,H,togglefloating,
 		bind = SUPER,Space,exec,${pkgs.rofi}/bin/rofi -show drun -o DP-3
+
+		bind = SUPER,Escape,exit,
+
+		bind = SUPER,Q,killactive,
 		bind = SUPER,P,pseudo,
 		bind = SUPER,F,fullscreen,
+		bind = SUPERSHIFT,H,togglefloating,
 
 		bind = SUPER,H,movefocus,l
 		bind = SUPER,L,movefocus,r
@@ -142,8 +142,6 @@
 		bind = CTRL,left,resizeactive,-20 0
 		bind = CTRL,up,resizeactive,0 -20
 		bind = CTRL,down,resizeactive,0 20
-
-		bind = ,print,exec,${pkgs.flameshot}/bin/flameshot gui
 
 		bind = ,XF86AudioLowerVolume,exec,${pkgs.pamixer}/bin/pamixer -d 10
 		bind = ,XF86AudioRaiseVolume,exec,${pkgs.pamixer}/bin/pamixer -i 10
