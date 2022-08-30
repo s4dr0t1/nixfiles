@@ -6,16 +6,17 @@
 
 { config, lib, pkgs, ... }:
 {
-	# Disable management of DNS via NetworkManager and override the default DNS to be localhost so that we can use the Encrypted DNS service
+	# Disable management of DNS via NetworkManager and override the default DNS to be localhost so that we can use the Encrypted DNS service networking = {
 	networking = {
 		nameservers = [ "127.0.0.1" "::1" ];
 		networkmanager.dns = "none";
 	};
 
-
 	services = {
 		# Making sure services.resolved is off
-		services.resolved.enable = false;
+		resolved = {
+			enable = false;
+		};
 
 		dnscrypt-proxy2 = {
 			enable = true;
