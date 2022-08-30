@@ -1,3 +1,8 @@
+/*
+	Name: /modules/utilities/librewolf.nix
+	Description: Configuration file for librewolf
+	Note: To check if Librefox is running properly under Wayland, check about:support and look for Windows Protocol.
+*/
 { username, ... }:
 {
 	home-manager.users.${username}.programs.librewolf = {
@@ -39,5 +44,5 @@
 			# Enable HTTPS only mode
 			"dom.security.https_only_mode_ever_enabled" = true;
 		};
-	}
+	};
 }

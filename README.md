@@ -1,7 +1,7 @@
 # [s4dr0t1/nixfiles](github.com/s4dr0t1/nixfiles)
 
 [<img src="https://nixos.org/logo/nixos-logo-only-hires.png" width="200" align="right" alt="NixOS">](https://nixos.org)
-[![NixOS 22.05](https://img.shields.io/badge/NixOS-22.05-blue.svg?style=flat&logo=NixOS&logoColor=white)](https://nixos.org)
+[![NixOS 22.11](https://img.shields.io/badge/NixOS-22.11-blue.svg?style=flat&logo=NixOS&logoColor=white)](https://nixos.org)
 [![Nix Flake Check](https://github.com/s4dr0t1/nixfiles/workflows/Nix%20Flake%20Check/badge.svg)](https://github.com/s4dr0t1/nixfiles/actions)
 [![Commit activity](https://img.shields.io/github/last-commit/s4dr0t1/nixfiles/main?style=flat)](https://github.com/s4dr0t1/nixfiles)
 [![Warning](https://img.shields.io/badge/Warning-WIP-red?style=flat&logo=serverfault)](https://en.wikipedia.org/wiki/Work_in_Progress_(https://en.wikipedia.org/wiki/Work_in_process))
