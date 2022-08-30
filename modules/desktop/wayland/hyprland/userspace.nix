@@ -98,7 +98,7 @@
 
 		bind = SUPER,Return,exec,${pkgs.kitty}/bin/kitty
 		bind = SUPER,E,exec,${pkgs.pcmanfm}/bin/pcmanfm
-		bind = SUPER,Space,exec,${pkgs.rofi}/bin/rofi -show drun -o DP-3
+		bind = SUPER,Space,exec,${pkgs.rofi-wayland}/bin/rofi -show drun -o DP-3
 
 		bind = SUPER,Escape,exit,
 
