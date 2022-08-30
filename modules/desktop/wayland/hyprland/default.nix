@@ -3,6 +3,6 @@
 {
 	imports = [
 		(./system.nix)
-#		(./userspace.nix)
+		(./userspace.nix)
 	];
 }
