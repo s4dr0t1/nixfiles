@@ -9,6 +9,6 @@
 		# System level configuration related to Wayland
 		(./hyprland)
 		(./rofi)
-
+		(./waybar)
 	];
 }
