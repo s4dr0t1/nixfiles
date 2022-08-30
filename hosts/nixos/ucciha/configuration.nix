@@ -76,12 +76,6 @@
 	networking = {
 		hostName = "ucciha";
 
-		# DNS servers
-		nameservers = [
-			"1.1.1.1"
-			"1.0.0.1"
-		];
-
 		useDHCP = lib.mkDefault true;
 
 		# Let computer networking be managed by NetworkManager

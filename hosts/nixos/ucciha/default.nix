@@ -29,6 +29,7 @@
 
 		# Security
 		../../../modules/security/gpg.nix
+		../../../modules/security/dns.nix
 
 		# Utilities
 		../../../modules/utilities/chromium.nix
