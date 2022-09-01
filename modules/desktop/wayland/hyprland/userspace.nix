@@ -19,6 +19,7 @@
 		# Monitor information
 		# Use the following command to get information about monitors: hyprctl monitors
 		# Entry template: monitor=<monitorName>, <resolution>@<refreshRate>, <offset>, <scaling>
+
 		monitor = eDP-1,1920x1080@60,0x0,1
 
 		general {
@@ -34,7 +35,7 @@
 
 			# Border highlighting of active/ inactive windows
 			col.active_border   = 0x80ffffff
-			col.inactive_border = 0x66333333
+			col.inactive_border = 0x161616
 
 			# DONT CHANGE THIS AT ANY COST
 			damage_tracking = full 
@@ -45,7 +46,7 @@
 
 		decoration {
 			# Rounding corner radius
-			rounding = 5
+			rounding = 0
 
 			# I don't understand this
 			multisample_edges = true
@@ -122,8 +123,8 @@
 		bind = ALT,8,workspace,8
 		bind = ALT,9,workspace,9
 		bind = ALT,0,workspace,10
-		bind = ALT,right,workspace,+1
-		bind = ALT,left,workspace,-1
+		bind = ALT,L,workspace,+1
+		bind = ALT,H,workspace,-1
 
 		bind = ALTSHIFT,1,movetoworkspace,1
 		bind = ALTSHIFT,2,movetoworkspace,2
@@ -135,8 +136,8 @@
 		bind = ALTSHIFT,8,movetoworkspace,8
 		bind = ALTSHIFT,9,movetoworkspace,9
 		bind = ALTSHIFT,0,movetoworkspace,10
-		bind = ALTSHIFT,right,movetoworkspace,+1
-		bind = ALTSHIFT,left,movetoworkspace,-1
+		bind = ALTSHIFT,L,movetoworkspace,+1
+		bind = ALTSHIFT,H,movetoworkspace,-1
 
 		bind = CTRL,right,resizeactive,20 0
 		bind = CTRL,left,resizeactive,-20 0
