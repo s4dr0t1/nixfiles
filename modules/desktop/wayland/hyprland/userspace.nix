@@ -81,7 +81,7 @@
 			follow_mouse = 0
 
 			# Libinput mouse sensitivity (-1 to 1)
-			sensitivity = 1
+			sensitivity = 0.8
 
 			# I don't understand this
 			repeat_delay = 250
@@ -93,26 +93,35 @@
 			tap-to-click = true
 		};
 
-		# Keybindings
+		# Keybindings to perform certain tasks
 		# Syntax: bind=MOD,key,dispatcher,params
 		# Example: bind=SUPERSHIFT,Q,exec,firefox
 
+		# Opening certain applications
 		bind = SUPER,Return,exec,${pkgs.kitty}/bin/kitty
-		bind = SUPER,E,exec,${pkgs.pcmanfm}/bin/pcmanfm
-		bind = SUPER,Space,exec,${pkgs.rofi-wayland}/bin/rofi -show drun -o DP-3
-
+		bind = SUPER,Space,exec,${pkgs.rofi-wayland}/bin/rofi -show drun
+		# Kill Hyprland and go back to tty
 		bind = SUPER,Escape,exit,
 
+		# Kill the current active screen
 		bind = SUPER,Q,killactive,
+
+		# pseudo window
 		bind = SUPER,P,pseudo,
+
+		# Full-screen the current window
 		bind = SUPER,F,fullscreen,
+
+		# Toggle b/w floating windows
 		bind = SUPERSHIFT,H,togglefloating,
 
+		# Move focus b/w windows
 		bind = SUPER,H,movefocus,l
 		bind = SUPER,L,movefocus,r
 		bind = SUPER,K,movefocus,u
 		bind = SUPER,J,movefocus,d
 
+		# Move to a specific workspace
 		bind = ALT,1,workspace,1
 		bind = ALT,2,workspace,2
 		bind = ALT,3,workspace,3
@@ -126,6 +135,7 @@
 		bind = ALT,L,workspace,+1
 		bind = ALT,H,workspace,-1
 
+		# Move the current active window to the specific workspace
 		bind = ALTSHIFT,1,movetoworkspace,1
 		bind = ALTSHIFT,2,movetoworkspace,2
 		bind = ALTSHIFT,3,movetoworkspace,3
@@ -139,17 +149,20 @@
 		bind = ALTSHIFT,L,movetoworkspace,+1
 		bind = ALTSHIFT,H,movetoworkspace,-1
 
+		# Resize windows
 		bind = CTRL,right,resizeactive,20 0
 		bind = CTRL,left,resizeactive,-20 0
 		bind = CTRL,up,resizeactive,0 -20
 		bind = CTRL,down,resizeactive,0 20
 
+		# Keyboard shortcuts to increase/ decrease volume, brightness etc
 		bind = ,XF86AudioLowerVolume,exec,${pkgs.pamixer}/bin/pamixer -d 10
 		bind = ,XF86AudioRaiseVolume,exec,${pkgs.pamixer}/bin/pamixer -i 10
 		bind = ,XF86AudioMute,exec,${pkgs.pamixer}/bin/pamixer -t
 		bind = ,XF86AudioMicMute,exec,${pkgs.pamixer}/bin/pamixer --default-source -t
-		bind = ,XF86MonBrightnessDown,exec,${pkgs.light}/bin/light -U 5
-		bind = ,XF86MonBrightnessUP,exec,${pkgs.light}/bin/light -A 5
+
+		bind = ,XF86MonBrightnessUP,exec,${pkgs.brightnessctl}/bin/brightnessctl s 5%+
+		bind = ,XF86MonBrightnessDown,exec,${pkgs.brightnessctl}/bin/brightnessctl s 5%-
 
 		windowrule = float,^(Rofi)$
 		windowrule = float,title:^(Picture-in-Picture)$
