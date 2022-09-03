@@ -6,10 +6,11 @@
 [![Commit activity](https://img.shields.io/github/last-commit/s4dr0t1/nixfiles/main?style=flat)](https://github.com/s4dr0t1/nixfiles)
 [![Warning](https://img.shields.io/badge/Warning-WIP-red?style=flat&logo=serverfault)](https://en.wikipedia.org/wiki/Work_in_Progress_(https://en.wikipedia.org/wiki/Work_in_process))
 
-
 - [Introduction](#introduction)
 - [What am I looking at?](#what-am-i-looking-at%3F)
 - [Documentation](#documentation)
+	- [Directory structure](#directory-structure)
+	- [Keybindings](#keybindings)
 - [How to get started?](#how-to-get-started%3F)
 - [License](#license)
 
@@ -20,15 +21,28 @@
 
 This repository contains configuration files for my Nix universe shenanigans.
 
+Component | Name
+-|-
+OS | [NixOS](https://nixos.org/)
+WM | [Hyprland](https://hyprland.org/)
+Terminal emulator | [Kitty](https://github.com/kovidgoyal/kitty)
+Shell | [Fish](https://github.com/fish-shell/fish-shell)
+Terminal multiplexer | [tmux](https://github.com/tmux/tmux)
+Editor | [Neovim](https://github.com/neovim/neovim)
+Launcher | [rofi -wayland](https://github.com/lbonn/rofi)
+
 ## What am I looking at?
 
 If you stumbled upon this repository by chance and are scrambling your head about what the hell this Nix thing is? Let me help. :D
 
+- [Dotfiles](https://github.com/xero/dotfiles#dotfiles): In the Unix universe, programs are commonly configured in two different ways, via shell arguments or text based configuration files. Programs with many options like Window Managers or text editors are configured on a per-user basis with files in your home directory ~. In Unix like OS any file or directory name that starts with a period is considered hidden, and in a default view will not be displayed. Thus the name dotfiles.
 - [Nix](https://nixos.wiki/wiki/Nix_package_manager): It's a packaging and build system, the configuration files of which, are written with the help of [Nix Expression Language](https://nixos.wiki/wiki/Overview_of_the_Nix_Language).
 - [NixOS](https://nixos.wiki/wiki/Overview_of_the_NixOS_Linux_distribution): A GNU/ Linux distribution based on Nix.
 - [Nix Expression Language](https://nixos.wiki/wiki/Overview_of_the_Nix_Language): A programming language designed per the functional programming paradigm. Used to write instructions for the Nix packaging system and isn't a general-purpose programming language.
 
 ## Documentation
+
+### Directory structure
 
 ```
 .
@@ -44,6 +58,11 @@ If you stumbled upon this repository by chance and are scrambling your head abou
 - `doc/` contains the documentation, cheatsheets and the likes.
 - `hosts/` contains system level configuration for different hosts that I have.
 - `modules/` contains application-level configuration, managed by home-manager and in some cases Nix, documentation can be found [here](./doc/README.md).
+
+### Keybindings
+
+Documentation can be found [here](./doc/README.md).
+
 
 ## How to get started?
 
