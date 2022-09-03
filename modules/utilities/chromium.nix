@@ -57,14 +57,10 @@
 			{ id = "bkdgflcldnnnapblkhphbgpggdiikppg"; }
 			# LocalCDN
 			{ id = "njdfdhgcmkocbgbhcioffdbicglldapd"; }
-			# Plasma Integration
-			{ id = "cimiefiiaegbelhefglklhhakcgmhkai"; }
 			# DarkReader
 			{ id = "eimadpbcbfnmbkopoojfekhnkhdbieeh"; }
 			# Enhancer for YouTube
 			{ id = "ponfpcnoihfmfllpaingbgckeeldkhle"; }
-			# XDM
-			{ id = "dkckaoghoiffdbomfbbodbbgmhjblecj"; }
 		];
 	};
 }
