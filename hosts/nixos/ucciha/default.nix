@@ -34,5 +34,6 @@
 		# Utilities
 		../../../modules/utilities/chromium.nix
 		../../../modules/utilities/librewolf.nix
+		../../../modules/utilities/jellyfin.nix
 	];
 }

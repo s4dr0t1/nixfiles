@@ -1,6 +1,6 @@
 #DON't MODIFY THIS FILE
 
-{ config, lib, pkgs, modulesPath, ... }:
+{ config, lib, pkgs, modulesPath, username, ... }:
 
 {
 	imports = [ 
@@ -25,6 +25,12 @@
 	{
 		device = "/dev/disk/by-uuid/2F24-1C84";
 		fsType = "vfat";
+	};
+
+	fileSystems."/home/${username}/media" =
+	{
+		device = "/dev/disk/by-uuid/93fbb804-57a2-4982-a91c-b7bc266fdb89";
+		fsType = "ext4";
 	};
 
 	swapDevices =
