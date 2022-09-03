@@ -6,6 +6,18 @@
 
 {
 	home-manager.users.${username}= {
+
+		/*
+			Start Hyprland on first login through TTY
+			This is a fish script, you may need to convert it into your shell equivalent
+		*/
+		programs.fish.loginShellInit =
+		''
+			if [ -z $DISPLAY ] && [ (tty) = "/dev/tty1" ];
+				exec Hyprland
+			end
+		'';
+
 		/*
 			Write the configuration file named hyprland.conf to ~/.config/hypr
 			https://wiki.hyprland.org/Configuring/Basic-Config/
