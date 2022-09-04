@@ -1,9 +1,10 @@
-{pkgs, username, ... }:
+{ inputs, pkgs, username, ... }:
 {
 	home-manager.users.${username}.home.packages = with pkgs; [
 		# Command line applications
 		bat
 		patchelf
+		ranger
 
 		# Appearance
 		la-capitaine-icon-theme
@@ -11,13 +12,13 @@
 
 		# Productivity applications
 		#calibre
-		flameshot
+		#flameshot
 		notion-app-enhanced
 		obsidian
 		#obs-studio
-		vmware-workstation
-		openboard
-		libreoffice
+		#vmware-workstation
+		#openboard
+		#libreoffice
 
 		# Security applications
 		checksec
@@ -28,8 +29,10 @@
 		# Recreation, social media and messaging
 		discord
 		jellyfin-media-player
-		vlc
+		mpv
 		tdesktop
+		vimiv-qt
+
 
 		# Programming
 		rustup
