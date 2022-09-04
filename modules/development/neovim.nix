@@ -1,13 +1,13 @@
-{pkgs, username, ... }:
+{ pkgs, username, ... }:
 {
 	home-manager.users.${username}.programs.neovim = {
 		enable = true;
+		package = pkgs.neovim-nightly;
 		extraPackages = with pkgs; [
 			fd
 			ripgrep
 			lua53Packages.luarocks
 			go
-
 		];
 		extraConfig = "";
 		viAlias = true;

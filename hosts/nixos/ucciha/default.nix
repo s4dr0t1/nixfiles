@@ -10,10 +10,11 @@
 		(./hardware-configuration.nix)
 		(./home-manager.nix)
 
-		# Use Wayland
-		(../../../modules/desktop/wayland)
+		# Overlays
+		(../../../overlays)
 
-		# Use X11
+		# Display server protocol
+		(../../../modules/desktop/wayland)
 		#(../../../modules/desktop/xorg)
 
 		# Applications which don't have any configuration options come under /modules/default.nix (uncategorized ones)
