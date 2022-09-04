@@ -11,6 +11,7 @@
 - [Documentation](#documentation)
 	- [Directory structure](#directory-structure)
 	- [Keybindings](#keybindings)
+	- [Wallpapers](#wallpapers)
 - [How to get started?](#how-to-get-started%3F)
 - [License](#license)
 
@@ -63,6 +64,9 @@ If you stumbled upon this repository by chance and are scrambling your head abou
 
 Documentation can be found [here](./doc/README.md).
 
+### Wallpapers
+
+Support for static wallpaper is done through  `swaybg`. To make use of the feature, put the wallpaper you want to set as following: `~/Pictures/wallpaper`.
 
 ## How to get started?
 

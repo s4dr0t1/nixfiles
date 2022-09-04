@@ -27,6 +27,7 @@
 
 		# Additional programs to run on Hyprland startup
 		exec-once = ${pkgs.waybar}/bin/waybar
+		exec-once = ${pkgs.swaybg}/bin/swaybg -i $HOME/Pictures/wallpaper -m fit
 
 		# Monitor information
 		# Use the following command to get information about monitors: hyprctl monitors
