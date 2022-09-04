@@ -2,6 +2,7 @@
 	Name: configuration.nix
 	Description: User agnostic system-wide configuration file
 	Contains configuration options for the following:
+		- Package caching using Cachix
 		- Nix package manager
 		- Bootloader options
 		- User accounts
@@ -30,6 +31,18 @@
 
 			# Enable support for flakes
 			experimental-features = [ "nix-command" "flakes" ];
+
+			/*
+				Binary caching
+				nix.binaryCaches --> nix.settings.substituters
+				nix.binaryCachePublicKeys -> nix.settings.trusted-public-keys
+			*/
+			substituters = [
+				"https://nix-community.cachix.org"
+			];
+			trusted-public-keys = [
+				"nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+			];
 		};
 
 		# Automatic garbage collection
@@ -38,6 +51,7 @@
 			dates = "weekly";
 			options = "--delete-older-than 7d";
 		};
+
 	};
 
 	/*
