@@ -7,6 +7,7 @@ Shortcut | Description | Category
 -|-|-
 `super + <ENTER>` | Open the terminal | Launching applications
 `super + <SPACE>` | Open the application launcher | Launching applications
+`super + e` | Open file explorer | Launching applications
 `super + q` | Kill the current active Window | Window management
 `super + f` | Toggle full-screen for the current window | Window management
 `super + <h/j/k/l>` | Move focus between the windows present in the current workspace, in a Vim fashion | Window management
