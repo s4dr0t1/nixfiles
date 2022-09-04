@@ -97,13 +97,14 @@
 
 			# I don't understand this
 			repeat_delay = 250
+
+			touchpad {
+				disable_while_typing = true
+				natural_scroll = false
+				tap-to-click = false
+			};
 		}
 
-		input:touchpad {
-			disable_while_typing = true
-			natural_scroll = false
-			tap-to-click = true
-		};
 
 		# Keybindings to perform certain tasks
 		# Syntax: bind=MOD,key,dispatcher,params
