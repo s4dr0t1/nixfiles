@@ -10,6 +10,7 @@ Shortcut | Description | Category
 `super + e` | Open file explorer | Launching applications
 `super + q` | Kill the current active Window | Window management
 `super + f` | Toggle full-screen for the current window | Window management
+`super + <SHIFT> + L` | Lock the screen using swaylock | Window management
 `super + <h/j/k/l>` | Move focus between the windows present in the current workspace, in a Vim fashion | Window management
 `<ALT> + <h/l>` | Move to the previous/ next workspace | Workspace
 `<ALT> + X` | Move to the workspace number X where X is the workspace number | Workspace

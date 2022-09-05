@@ -10,5 +10,6 @@
 		(./hyprland)
 		(./rofi)
 		(./waybar)
+		(./swaylock.nix)
 	];
 }

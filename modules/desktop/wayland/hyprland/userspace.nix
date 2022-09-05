@@ -114,7 +114,9 @@
 		# Opening certain applications
 		bind = SUPER,Return,exec,${pkgs.kitty}/bin/kitty
 		bind = SUPER,Space,exec,${pkgs.rofi-wayland}/bin/rofi -show drun
-		bind=SUPER,E,exec,${pkgs.pcmanfm}/bin/pcmanfm
+		bind = SUPER,E,exec,${pkgs.pcmanfm}/bin/pcmanfm
+		bind = SUPERSHIFT,L,exec,${pkgs.swaylock-effects}/bin/swaylock
+
 		# Kill Hyprland and go back to tty
 		bind = SUPER,Escape,exit,
 
