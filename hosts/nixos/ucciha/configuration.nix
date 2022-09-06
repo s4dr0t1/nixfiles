@@ -191,6 +191,6 @@ in
 	/*
 		Miscellaneous
 	*/
-	services.printing.enable = true;
+	services.printing.enable = false;
 	system.stateVersion = "22.05"; #Don't change this at any cost
 }
