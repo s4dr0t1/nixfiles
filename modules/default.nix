@@ -1,3 +1,8 @@
+/*
+	Name: /modules/default.nix
+	Description: Contains packages which don't have any home-manager specific configuration
+*/
+
 { inputs, pkgs, username, ... }:
 {
 	home-manager.users.${username}.home.packages = with pkgs; [

@@ -1,4 +1,10 @@
-{username, ... }:
+/*
+	Name: /modules/development/kitty.nix
+	Description: Configuration file for the kitty terminal emulator
+*/
+
+{ username, ... }:
+
 {
 	home-manager.users.${username}.programs.kitty = {
 		enable = true;

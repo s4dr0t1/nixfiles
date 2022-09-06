@@ -30,7 +30,7 @@ Terminal emulator | [Kitty](https://github.com/kovidgoyal/kitty)
 Shell | [Fish](https://github.com/fish-shell/fish-shell)
 Terminal multiplexer | [tmux](https://github.com/tmux/tmux)
 Editor | [Neovim](https://github.com/neovim/neovim)
-Launcher | [rofi -wayland](https://github.com/lbonn/rofi)
+Launcher | [rofi-wayland](https://github.com/lbonn/rofi)
 
 ## What am I looking at?
 

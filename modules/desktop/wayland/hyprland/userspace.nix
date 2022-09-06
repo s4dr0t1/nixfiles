@@ -1,6 +1,6 @@
 /*
 	Name: /modules/desktop/wayland/hyprland/userspace.nix
-	Description: Configuration file for Hyprland
+	Description: Userspace configuration file for Hyprland
 */
 { config, lib, pkgs, username, ... }:
 

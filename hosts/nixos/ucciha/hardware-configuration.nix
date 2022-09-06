@@ -1,4 +1,7 @@
-#DON't MODIFY THIS FILE
+/*
+	Name: /hosts/nixos/ucciha/hardware-configuration.nix
+	Description: Contains hardware-related configuration for the NixOS/ucciha host
+*/
 
 { config, lib, pkgs, modulesPath, username, ... }:
 

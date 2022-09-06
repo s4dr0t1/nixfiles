@@ -1,3 +1,8 @@
+/*
+	Name: /modules/development/fish.nix
+	Description: Configuration file for the fish shell
+*/
+
 { username, ... }:
 {
 	home-manager.users.${username}.programs.fish = {

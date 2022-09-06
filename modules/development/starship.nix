@@ -1,3 +1,7 @@
+/*
+	Name: /modules/development/starship.nix
+	Description: Configuration file for the Starship shell prompt
+*/
 { username, ... }:
 {
 	home-manager.users.${username}.programs.starship =

@@ -1,11 +1,12 @@
 /*
 	Name: /hosts/nixos/ucciha/default.nix
-	Description: Contains profile level configuration for my laptop (ucciha)
+	Description: Acting as a pointer to other configuration files which are to be used by the ucciha host
 */
 { pkgs, lib, username, useremail, fullname, ... }:
 
 {
 	imports = [
+		# Core
 		(./configuration.nix)
 		(./hardware-configuration.nix)
 		(./home-manager.nix)
@@ -17,7 +18,7 @@
 		(../../../modules/desktop/wayland)
 		#(../../../modules/desktop/xorg)
 
-		# Applications which don't have any configuration options come under /modules/default.nix (uncategorized ones)
+		# Applications which don't have any configuration options come under /modules/default.nix (uncategorised ones)
 		../../../modules
 
 		# Development

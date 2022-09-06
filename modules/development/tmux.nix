@@ -1,15 +1,25 @@
-{username, ... }:
+/*
+	Name: /modules/development/tmux.nix
+	Description: Configuration file for the tmux terminal multiplexer
+*/
+
+{ username, ... }:
 {
 	home-manager.users.${username}.programs.tmux = {
 		enable = true;
+
 		# Start indexing of windows from 1, and not 0
 		baseIndex = 1;
+
 		# Use the 24-hour clock format
 		clock24 = false;
+
 		# Set the prefix key
 		prefix = "C-a";
+
 		# Store tmux socket under /run instead of /tmp, making it more secure
 		secureSocket = true;
+
 		# Set the $TERM environment variable
 		terminal = "screen";
 

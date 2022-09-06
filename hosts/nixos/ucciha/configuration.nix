@@ -1,6 +1,6 @@
 /*
-	Name: configuration.nix
-	Description: User agnostic system-wide configuration file
+	Name: /hosts/nixos/ucciha/configuration.nix
+	Description: User agnostic system-wide configuration file for the ucciha host
 	Contains configuration options for the following:
 		- Package caching using Cachix
 		- Nix package manager
@@ -35,7 +35,7 @@
 			/*
 				Binary caching
 				nix.binaryCaches --> nix.settings.substituters
-				nix.binaryCachePublicKeys -> nix.settings.trusted-public-keys
+				nix.binaryCachePublicKeys --> nix.settings.trusted-public-keys
 			*/
 			substituters = [
 				"https://nix-community.cachix.org"
@@ -73,7 +73,7 @@
 	*/
 	users.users.${username} = {
 		isNormalUser = true;
-		description = "Rohit Dhill";
+		description = "${fullname}";
 		initialPassword = "password"; #CHANGE THIS LATER USING passwd
 		shell = pkgs.fish;
 		extraGroups = [

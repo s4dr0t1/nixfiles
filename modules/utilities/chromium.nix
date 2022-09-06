@@ -1,4 +1,8 @@
-{pkgs, username, ... }:
+/*
+	Name: /modules/utilities/chromium.nix
+	Description: Configuration for the Chromium web browser, managed through home-manager
+*/
+{ pkgs, username, ... }:
 {
 	home-manager.users.${username}.programs.chromium = {
 		enable = true;
