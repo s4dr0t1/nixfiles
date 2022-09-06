@@ -16,6 +16,10 @@
 */
 
 { config, lib, pkgs, inputs, username, useremail, fullname,  ... }:
+let
+	# Add a user to the following groups only if the groups exist, otherwise don't.
+	ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
+in
 {
 	/*
 		Nix settings
@@ -79,6 +83,8 @@
 		extraGroups = [
 			"networkmanager"
 			"wheel"
+		]
+		++ ifTheyExist [
 			"wireshark"
 			"docker"
 		];
