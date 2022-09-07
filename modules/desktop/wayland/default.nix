@@ -11,5 +11,6 @@
 		(./rofi)
 		(./waybar)
 		(./swaylock.nix)
+		(./swayidle.nix)
 	];
 }
