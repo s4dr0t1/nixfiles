@@ -29,15 +29,20 @@
 		};
 
 		# Additional flakes
-		neovim-nightly-overlay = {
-			url = "github:nix-community/neovim-nightly-overlay";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
+			# Neovim nightly builds
+			neovim-nightly-overlay = {
+				url = "github:nix-community/neovim-nightly-overlay";
+				inputs.nixpkgs.follows = "nixpkgs";
+			};
 
+			# FOSS Discord client
+			webcord = {
+				url = "github:fufexan/webcord-flake";
+			};
 	};
 
 	# Function which tells my flake with to do with the dependencies
-	outputs = inputs @ { self, nixpkgs, home-manager, hyprland, ... }: 
+	outputs = inputs @ { self, nixpkgs, home-manager, hyprland, webcord, ... }: 
 		let
 			# Variables which will be used throughout this configuration
 			username = "s4dr0t1";
@@ -60,7 +65,7 @@
 			nixosConfigurations = (
 				import ./hosts/nixos {
 					inherit (nixpkgs) lib;
-					inherit inputs nixpkgs home-manager username fullname useremail hyprland;
+					inherit inputs nixpkgs home-manager username fullname useremail hyprland webcord;
 				}
 			);
 		};

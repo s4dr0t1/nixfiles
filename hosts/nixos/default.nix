@@ -6,7 +6,7 @@
 			- Configuration files of different hosts with NixOS installed, such as laptop/ desktop/ VM etc.
 */
 
-{ inputs, nixpkgs, home-manager, username, fullname, useremail, hyprland, ... }:
+{ inputs, nixpkgs, home-manager, username, fullname, useremail, hyprland, webcord, ... }:
 let
 	system = "x86_64-linux";
 
@@ -25,7 +25,7 @@ in
 	# My laptop profile
 	ucciha = nixpkgs.lib.nixosSystem {
 		inherit system;
-		specialArgs = { inherit inputs username useremail fullname; };
+		specialArgs = { inherit inputs username useremail fullname webcord; };
 
 		modules = [
 			./ucciha

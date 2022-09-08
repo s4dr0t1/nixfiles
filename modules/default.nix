@@ -7,9 +7,9 @@
 {
 	home-manager.users.${username}.home.packages = with pkgs; [
 		# Command line applications
-		bat
-		patchelf
-		ranger
+		bat 						# Better replacement for cat
+		patchelf						# Messing with ELF binaries
+		ranger						# CLI file manager
 
 		# Appearance
 		la-capitaine-icon-theme
@@ -18,29 +18,28 @@
 		# Productivity applications
 		#calibre
 		#flameshot
-		notion-app-enhanced
-		obsidian
+		notion-app-enhanced				# Note taking
+		obsidian						# Note taking
 		#obs-studio
 		#vmware-workstation
 		#openboard
 		#libreoffice
 
 		# Security applications
-		checksec
+		checksec						# Checking security based properties of binaries
 		#tailscale
-		wireshark
+		wireshark						# Protocol analysis
 		#rappel
 
 		# Recreation, social media and messaging
-		discord
-		jellyfin-media-player
-		mpv
-		tdesktop
-		vimiv-qt
+		jellyfin-media-player				# Player for self hosted media system
+		mpv						# VLC alternative
+		tdesktop						# Telegram desktop
+		vimiv-qt						# Image viewer
 
 
 		# Programming
-		rustup
+		rustup							# Getting latest builds of rust utilities
 		#vscodium
 	];
 }

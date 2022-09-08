@@ -2,7 +2,7 @@
 	Name: /hosts/nixos/ucciha/default.nix
 	Description: Acting as a pointer to other configuration files which are to be used by the ucciha host
 */
-{ pkgs, lib, username, useremail, fullname, ... }:
+{ pkgs, lib, username, useremail, fullname, webcord, ... }:
 
 {
 	imports = [
@@ -37,5 +37,8 @@
 		../../../modules/utilities/chromium.nix
 		../../../modules/utilities/librewolf.nix
 		../../../modules/utilities/jellyfin.nix
+
+		# Social apps
+		../../../modules/social/discord.nix
 	];
 }
