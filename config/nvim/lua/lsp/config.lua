@@ -55,7 +55,9 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 	on_attach event when a server will start, so that we can properly interact with the LSP
 	Used in custom_attach
 --]]
-function lsp_keymaps(bufnr)
+
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+function lsp_keymaps(client, bufnr)
 	local opts = { noremap = true, silent = true }
 	local set_lsp_key = vim.api.nvim_buf_set_keymap
 	set_lsp_key(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
@@ -78,4 +80,20 @@ function lsp_keymaps(bufnr)
 	set_lsp_key(bufnr, "n", "gj", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
 	set_lsp_key(bufnr, "n", "gm", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 	--vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format{async=true}' ]])
+	
+
+	-- Format on save functionality
+	print('LSP attached')
+	if client.supports_method("textDocument/formatting") then
+		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			group = augroup,
+			buffer = bufnr,
+			callback = function()
+				-- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
+				vim.lsp.buf.formatting_sync()
+			end,
+		})
+	end
+
 end

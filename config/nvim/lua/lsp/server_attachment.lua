@@ -66,28 +66,14 @@ CMP_CAPABILITIES = cmp_nvim_lsp.update_capabilities(CMP_CAPABILITIES)
 --]]
 
 -- Used for enabling formatting on save option
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 CUSTOM_ATTACH = function(client, bufnr)
 	-- Passing the keymaps so that they can be used
-	lsp_keymaps(bufnr)
-
-	if client.supports_method("textDocument/formatting") then
-		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-		vim.api.nvim_create_autocmd("BufWritePre", {
-			group = augroup,
-			buffer = bufnr,
-			callback = function()
-				-- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-				vim.lsp.buf.formatting_sync()
-			end,
-		})
-	end
-
+	lsp_keymaps(client, bufnr)
 
 	-- Disable formatting (for future reference)
-	--	if client.name == "tsserver" then
-	--		client.resolved_capabilities.document_formatting = false
-	--	end
+	--if client.name == "rnixis" then
+	--	client.resolved_capabilities.document_formatting = false
+	--end
 end
 
 mason_lspconfig.setup_handlers {

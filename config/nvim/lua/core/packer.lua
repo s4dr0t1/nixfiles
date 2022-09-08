@@ -56,7 +56,7 @@ return packer.startup(function(use)
 		'kyazdani42/nvim-tree.lua',
 		requires = {
 			'kyazdani42/nvim-web-devicons', -- File icons
-			opt = true
+			--opt = true
 		},
 		tag = 'nightly'
 	}
@@ -208,10 +208,6 @@ return packer.startup(function(use)
 			{ 'neovim/nvim-lspconfig/', opt = true },
 			{ 'nvim-treesitter/nvim-treesitter', opt = true },
 		},
-		run = {
-			'sudo apt-get install fd-find',
-			'sudo apt-get install ripgrep'
-		}
 	}
 	use {
 		'nvim-telescope/telescope-fzf-native.nvim',

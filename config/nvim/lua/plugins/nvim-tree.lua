@@ -47,4 +47,4 @@ tree.setup({
 --]]
 
 -- Toggle nvim-tree
-map('n', '<C-b>', ':NvimTreeToggle<CR>')
+map('n', '<C-b>', ':NvimTreeToggle<CR>', {silent = true })

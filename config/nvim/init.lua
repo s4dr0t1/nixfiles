@@ -5,7 +5,6 @@
 
 -- Key mappings independent of any plugin
 require('core')
-
 -- Configuration files for the LSP
 require('lsp')
 

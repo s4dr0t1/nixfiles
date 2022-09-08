@@ -43,7 +43,7 @@ local options = {
 	lazyredraw = true,
 
 	-- Use bash to execute commands, instead of the default shell
-	shell = "/usr/bin/bash",
+	shell = "/usr/bin/env bash",
 
 	-- In which direction should the tmux split
 	splitbelow = true,
@@ -106,7 +106,7 @@ end
 
 -- Disabling support for pynvim, and the likes: Default providers
 local default_providers = {
-	"node",
+	#"node",
 	"perl",
 	"python3",
 	"ruby",
