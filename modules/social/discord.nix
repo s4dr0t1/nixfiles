@@ -16,7 +16,11 @@
 		];
 	};
 
-	home-manager.users.${username}.home.packages = [
-		webcord.packages.${pkgs.system}.default
-	];
+	home-manager.users.${username}.home = {
+		# Run Discord with the --ozone-platform=wayland flag
+		sessionVariables.NIXOS_OZONE_WL = "1";
+		packages = [
+			webcord.packages.${pkgs.system}.default
+		];
+	};
 }
