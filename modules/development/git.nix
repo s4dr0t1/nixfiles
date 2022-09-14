@@ -9,5 +9,16 @@
 		enable = true;
 		userName  = "${fullname}";
 		userEmail = "${useremail}";
+#		extraConfig = {
+#		};
+
+		delta = {
+			enable = true;
+			# https://github.com/dandavison/delta
+			options = {
+				side-by-side = true;
+				line-numbers = true;
+			};
+		};
 	};
 }
