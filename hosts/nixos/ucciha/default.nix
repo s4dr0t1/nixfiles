@@ -37,6 +37,7 @@
 		../../../modules/utilities/chromium.nix
 		../../../modules/utilities/librewolf.nix
 		../../../modules/utilities/jellyfin.nix
+		../../../modules/utilities/syncthing.nix
 
 		# Social apps
 		../../../modules/social/discord.nix
