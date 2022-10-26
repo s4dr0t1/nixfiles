@@ -6,6 +6,11 @@
 { inputs, pkgs, username, ... }:
 {
 	home-manager.users.${username}.home.packages = with pkgs; [
+
+	# Programming
+		# Hex editor
+		imhex
+
 		# Command line applications
 		bat 						# Better replacement for cat
 		patchelf						# Messing with ELF binaries
