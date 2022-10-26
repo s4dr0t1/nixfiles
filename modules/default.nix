@@ -10,6 +10,8 @@
 	# Programming
 		# Hex editor
 		imhex
+		# Reverse engineering
+		ghidra
 
 		# Command line applications
 		bat 						# Better replacement for cat
