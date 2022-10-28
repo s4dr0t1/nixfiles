@@ -41,5 +41,8 @@
 
 		# Social apps
 		../../../modules/social/discord.nix
+
+		# Virtualization
+		../../../modules/virtualization/vbox.nix
 	];
 }
