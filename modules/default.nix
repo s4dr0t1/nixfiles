@@ -12,6 +12,8 @@
 		imhex
 
 		# Debugging
+		gdb
+		gef
 
 		# Command line applications
 		bat 						# Better replacement for cat
