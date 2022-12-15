@@ -39,10 +39,16 @@
 			webcord = {
 				url = "github:fufexan/webcord-flake";
 			};
+
+			# Mainly for screenshot functionality
+			hyprwm-contrib = {
+				url = "github:hyprwm/contrib";
+				inputs.nixpkgs.follows = "nixpkgs";
+			};
 	};
 
 	# Function which tells my flake with to do with the dependencies
-	outputs = inputs @ { self, nixpkgs, home-manager, hyprland, webcord, ... }: 
+	outputs = inputs @ { self, nixpkgs, home-manager, hyprland, webcord, hyprwm-contrib, ... }: 
 		let
 			# Variables which will be used throughout this configuration
 			username = "s4dr0t1";
@@ -65,7 +71,7 @@
 			nixosConfigurations = (
 				import ./hosts/nixos {
 					inherit (nixpkgs) lib;
-					inherit inputs nixpkgs home-manager username fullname useremail hyprland webcord;
+					inherit inputs nixpkgs home-manager username fullname useremail hyprland webcord hyprwm-contrib;
 				}
 			);
 		};
