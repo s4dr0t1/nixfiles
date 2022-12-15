@@ -15,7 +15,7 @@
 		- Miscellaneous
 */
 
-{ config, lib, pkgs, inputs, username, useremail, fullname,  ... }:
+{ config, lib, pkgs, inputs, username, useremail, fullname, ... }:
 let
 	# Add a user to the following groups only if the groups exist, otherwise don't.
 	ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
@@ -177,7 +177,8 @@ in
 
 	programs = {
 		# Android debug bridge
-		adb.enable = true;
+		# Temporary
+		adb.enable = false;
 
 		# GPG
 		gnupg = {
