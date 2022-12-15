@@ -11,6 +11,7 @@
 	];
 
 	boot = {
+		supportedFilesystems = [ "ntfs" ];
 		initrd = {
 			availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "sr_mod" ];
 			kernelModules = [ ];
