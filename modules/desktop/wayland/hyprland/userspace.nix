@@ -50,9 +50,6 @@
 			col.active_border   = 0x80ffffff
 			col.inactive_border = 0x161616
 
-			# DONT CHANGE THIS AT ANY COST
-			damage_tracking = full 
-
 			# The layout to use (master/ dwindle)
 			layout = dwindle
 		}
