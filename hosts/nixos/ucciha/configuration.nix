@@ -87,6 +87,7 @@ in
 		++ ifTheyExist [
 			"wireshark"
 			"docker"
+			"vboxusers"
 		];
 	};
 
