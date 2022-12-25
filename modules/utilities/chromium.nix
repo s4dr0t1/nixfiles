@@ -65,6 +65,8 @@
 			{ id = "eimadpbcbfnmbkopoojfekhnkhdbieeh"; }
 			# Enhancer for YouTube
 			{ id = "ponfpcnoihfmfllpaingbgckeeldkhle"; }
+			# Cookie Auto Delete
+			{ id = "fhcgjolkccmbidfldomjliifgaodjagh"; }
 		];
 	};
 }
