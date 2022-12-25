@@ -10,5 +10,6 @@
 		enable = true;
 		user = "${username}";
 		group = "users";
+		openFirewall = true;
 	};
 }
