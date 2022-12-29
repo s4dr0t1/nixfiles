@@ -42,6 +42,9 @@
 			# Size of the border surrounding a Window
 			border_size = 1
 
+			# Disable boders for floating windows
+			no_border_on_floating = false
+
 			# Gaps between Windows and monitor edges
 			gaps_in  = 2
 			gaps_out = 4
@@ -49,6 +52,9 @@
 			# Border highlighting of active/ inactive windows
 			col.active_border   = 0x80ffffff
 			col.inactive_border = 0x161616
+
+			# Hide the cursor after this defined time period
+			cursor_inactive_timeout = 10
 
 			# The layout to use (master/ dwindle)
 			layout = dwindle
@@ -111,8 +117,9 @@
 		# Opening certain applications
 		bind = SUPER,Return,exec,${pkgs.kitty}/bin/kitty
 		bind = SUPER,Space,exec,${pkgs.rofi-wayland}/bin/rofi -show drun
+		bind = SUPER,c,exec,${pkgs.chromium}/bin/chromium
 		bind = SUPER,E,exec,${pkgs.pcmanfm}/bin/pcmanfm
-		bind = SUPERSHIFT,L,exec,${pkgs.swaylock-effects}/bin/swaylock
+		bind = ALTSHIFT,L,exec,${pkgs.swaylock-effects}/bin/swaylock
 
 		# Kill Hyprland and go back to tty
 		bind = SUPER,Escape,exit,
@@ -125,9 +132,6 @@
 
 		# Full-screen the current window
 		bind = SUPER,F,fullscreen,
-
-		# Toggle b/w floating windows
-		bind = SUPERSHIFT,H,togglefloating,
 
 		# Move focus b/w windows
 		bind = SUPER,H,movefocus,l
@@ -168,6 +172,17 @@
 		bind = CTRL,left,resizeactive,-20 0
 		bind = CTRL,up,resizeactive,0 -20
 		bind = CTRL,down,resizeactive,0 20
+
+		# New syntax for mouse binds (https://github.com/hyprwm/Hyprland/issues/688)
+		bindm=SUPER,mouse:272,movewindow
+		bindm=SUPER,mouse:273,resizewindow
+
+		# Windows movement
+		bind = SUPERSHIFT,h,movewindow,l
+		bind = SUPERSHIFT,l,movewindow,r
+		bind = SUPERSHIFT,j,movewindow,u
+		bind = SUPERSHIFT,k,movewindow,d
+
 
 		# Keyboard shortcuts to increase/ decrease volume, brightness etc
 		bind = ,XF86AudioLowerVolume,exec,${pkgs.pamixer}/bin/pamixer -d 10
