@@ -2,8 +2,7 @@
 	Name: /modules/desktop/wayland/hyprland/userspace.nix
 	Description: Userspace configuration file for Hyprland
 */
-{ config, lib, pkgs, username, ... }:
-
+{ config, lib, pkgs, username, inputs, ... }:
 {
 	home-manager.users.${username}= {
 
@@ -183,6 +182,10 @@
 		bind = SUPERSHIFT,j,movewindow,u
 		bind = SUPERSHIFT,k,movewindow,d
 
+		# Screenshot using grimblast
+		bind=,Print,exec,${inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast copy area
+		bind=SUPER,Print,exec,${inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast copy window
+		bind=SHIFT,Print,exec,${inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast save output
 
 		# Keyboard shortcuts to increase/ decrease volume, brightness etc
 		bind = ,XF86AudioLowerVolume,exec,${pkgs.pamixer}/bin/pamixer -d 10
