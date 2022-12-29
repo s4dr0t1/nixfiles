@@ -15,6 +15,8 @@
 - [How to get started?](#how-to-get-started%3F)
 - [License](#license)
 
+![screenshot](./screenshot.png)
+
 > **Warning**
 > This project is a work-in-progress and production usage isn't recommended yet. For the time being, take inspiration from it to build something of your own.
 
