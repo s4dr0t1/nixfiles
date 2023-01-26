@@ -36,7 +36,7 @@
 
 		general {
 			# Used to move/ resize windows. See main_mod + LMB/ RMB
-			main_mod = SUPER
+			#main_mod = SUPER
 
 			# Size of the border surrounding a Window
 			border_size = 1
