@@ -25,7 +25,6 @@
 		# WM
 		hyprland = {
 			url = "github:hyprwm/Hyprland";
-			inputs.nixpkgs.follows = "nixpkgs";
 		};
 
 		# Additional flakes
@@ -43,7 +42,6 @@
 			# Mainly for screenshot functionality
 			hyprwm-contrib = {
 				url = "github:hyprwm/contrib";
-				inputs.nixpkgs.follows = "nixpkgs";
 			};
 	};
 
