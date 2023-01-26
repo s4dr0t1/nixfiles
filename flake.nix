@@ -28,12 +28,6 @@
 		};
 
 		# Additional flakes
-			# Neovim nightly builds
-			neovim-nightly-overlay = {
-				url = "github:nix-community/neovim-nightly-overlay";
-				inputs.nixpkgs.follows = "nixpkgs";
-			};
-
 			# FOSS Discord client
 			webcord = {
 				url = "github:fufexan/webcord-flake";

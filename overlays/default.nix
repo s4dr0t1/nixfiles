@@ -3,7 +3,11 @@
 	Description: Acts as a pointer to other overlays
 */
 {
+	/*
 	imports = [
-		(./neovim.nix)
+		/*
+			(./file.nix)
+		*/
 	];
+	*/
 }

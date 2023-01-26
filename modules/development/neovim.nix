@@ -7,7 +7,6 @@
 {
 	home-manager.users.${username}.programs.neovim = {
 		enable = true;
-		package = pkgs.neovim-nightly;
 		extraPackages = with pkgs; [
 			fd
 			ripgrep
@@ -18,8 +17,5 @@
 		viAlias = true;
 		vimAlias = true;
 		vimdiffAlias = true;
-		withNodeJs = true;
-		withPython3 = false;
-		withRuby = false;
 	};
 }
