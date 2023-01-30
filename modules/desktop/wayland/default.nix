@@ -12,5 +12,6 @@
 		(./waybar)
 		(./swaylock.nix)
 		(./swayidle.nix)
+		(./screensharing.nix)
 	];
 }
