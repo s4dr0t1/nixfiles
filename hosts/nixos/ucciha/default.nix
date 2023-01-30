@@ -23,6 +23,7 @@
 
 		# Development
 		../../../modules/development/git.nix
+		../../../modules/development/jetbrains.nix
 		../../../modules/development/neovim.nix
 		../../../modules/development/tmux.nix
 		../../../modules/development/kitty.nix
